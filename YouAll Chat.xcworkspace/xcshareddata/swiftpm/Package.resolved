@@ -73,6 +73,15 @@
       }
     },
     {
+      "identity" : "multipleimageview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nnsnodnb/MultipleImageView.git",
+      "state" : {
+        "revision" : "102810219557efc39dd8f790c3c345cde68ce19a",
+        "version" : "0.2.0"
+      }
+    },
+    {
       "identity" : "nanopb",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/nanopb.git",

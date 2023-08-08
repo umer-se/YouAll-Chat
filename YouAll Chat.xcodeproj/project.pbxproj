@@ -18,7 +18,6 @@
 		044D34FD2A7E31B6004A1565 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D34FC2A7E31B6004A1565 /* SignUpViewController.swift */; };
 		044D34FF2A7E3241004A1565 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D34FE2A7E3241004A1565 /* HomeViewController.swift */; };
 		044D35012A7E6E0D004A1565 /* UserAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D35002A7E6E0D004A1565 /* UserAuthentication.swift */; };
-		044D35042A80F6FA004A1565 /* MultipleImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 044D35032A80F6FA004A1565 /* MultipleImageView */; };
 		044D35092A80FDA8004A1565 /* Post.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D35082A80FDA8004A1565 /* Post.xib */; };
 		044D350B2A80FDF3004A1565 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D350A2A80FDF3004A1565 /* Post.swift */; };
 		A3A9FB40D879CD46A41F6B4C /* Pods_YouAll_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C997C45C0205134AF393DB /* Pods_YouAll_Chat.framework */; };
@@ -51,7 +50,6 @@
 				044D34F42A7E28F7004A1565 /* FirebaseAuth in Frameworks */,
 				044D34F62A7E28F7004A1565 /* FirebaseFirestore in Frameworks */,
 				A3A9FB40D879CD46A41F6B4C /* Pods_YouAll_Chat.framework in Frameworks */,
-				044D35042A80F6FA004A1565 /* MultipleImageView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +145,7 @@
 				044D34D52A7E242A004A1565 /* Sources */,
 				044D34D62A7E242A004A1565 /* Frameworks */,
 				044D34D72A7E242A004A1565 /* Resources */,
+				C2A4A9ABFF5ADF69FB6EAC20 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -156,7 +155,6 @@
 			packageProductDependencies = (
 				044D34F32A7E28F7004A1565 /* FirebaseAuth */,
 				044D34F52A7E28F7004A1565 /* FirebaseFirestore */,
-				044D35032A80F6FA004A1565 /* MultipleImageView */,
 			);
 			productName = "YouAll Chat";
 			productReference = 044D34D92A7E242A004A1565 /* YouAll Chat.app */;
@@ -188,7 +186,6 @@
 			mainGroup = 044D34D02A7E242A004A1565;
 			packageReferences = (
 				044D34F22A7E28F7004A1565 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				044D35022A80F6FA004A1565 /* XCRemoteSwiftPackageReference "MultipleImageView" */,
 			);
 			productRefGroup = 044D34DA2A7E242A004A1565 /* Products */;
 			projectDirPath = "";
@@ -235,6 +232,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2A4A9ABFF5ADF69FB6EAC20 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YouAll Chat/Pods-YouAll Chat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YouAll Chat/Pods-YouAll Chat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YouAll Chat/Pods-YouAll Chat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -479,14 +493,6 @@
 				minimumVersion = 10.0.0;
 			};
 		};
-		044D35022A80F6FA004A1565 /* XCRemoteSwiftPackageReference "MultipleImageView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nnsnodnb/MultipleImageView.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -499,11 +505,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 044D34F22A7E28F7004A1565 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
-		};
-		044D35032A80F6FA004A1565 /* MultipleImageView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 044D35022A80F6FA004A1565 /* XCRemoteSwiftPackageReference "MultipleImageView" */;
-			productName = MultipleImageView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

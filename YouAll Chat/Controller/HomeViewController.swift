@@ -6,7 +6,9 @@
 //
 
 import UIKit
-import MultipleImageView
+import ImageViewer_swift
+
+
 
 class HomeViewController : UIViewController{
 
@@ -22,13 +24,15 @@ class HomeViewController : UIViewController{
     let userAutentication = UserAuthentication()
     let postSource = Post()
     
-     var sources: [MultipleImageView.Source] = [
-        .uiimage(UIImage(systemName: "a.book.closed")!),
-        .uiimage(UIImage(systemName: "a.book.closed")!),
-        .uiimage(UIImage(systemName: "a.book.closed")!),
-        .uiimage(UIImage(systemName: "a.book.closed")!),
-        .uiimage(UIImage(systemName: "a.book.closed")!),
-        .uiimage(UIImage(systemName: "a.book.closed")!)
+    var sources: [UIImage] = [
+        UIImage(systemName: "a.book.closed")!,
+        UIImage(systemName: "a.book.closed")!,
+        UIImage(systemName: "a.book.closed")!,
+        UIImage(systemName: "a.book.closed")!,
+        UIImage(systemName: "a.book.closed")!,
+        UIImage(systemName: "a.book.closed")!,
+        UIImage(systemName: "a.book.closed")!,
+        UIImage(systemName: "a.book.closed")!
     ]
     
     
@@ -36,9 +40,13 @@ class HomeViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         tableView.dataSource = self
         navigationItem.hidesBackButton = true
         tableView.register(UINib(nibName: "Post" , bundle: nil), forCellReuseIdentifier:"postIdentifier")
+        //
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.rowHeight = UITableView.automaticDimension
         
         
     }
@@ -67,9 +75,17 @@ extension HomeViewController: UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "postIdentifier" , for: indexPath) as! Post
     
-        cell.userImage.image = UIImage(systemName: "a.book.closed")
+        //cell.setupMultiImagesView()
+        //cell.multipleImagesView.setupImageViewer(urls: cell.images,options: [.contentMode(.center)])
+        cell.setupWith(name: "Person \(indexPath.row)",
+                       content: "Person \(indexPath.row) said this is a great demo, if you like it, please give me a 'star' or fork the project. I will continue making some more Liberary for you.",
+                       imageArray:  cell.images[indexPath.row])
+        return cell;
         
-       // cell.multipleImageView.sources = sources
+        
+        //cell.iconImageView.image = UIImage(systemName: "a.book.closed")
+        
+ 
         
         return cell
     }

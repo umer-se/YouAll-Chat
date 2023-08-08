@@ -16,10 +16,10 @@ private let FTImageViewerBackgroundColor =  UIColor.black
 private let FTImageViewBarBackgroundColor =  UIColor.black.withAlphaComponent(0.3)
 private let FTImageViewBarHeight: CGFloat =  60.0 // for iPhoneX layout issue
 private let FTImageViewBarButtonWidth: CGFloat =  30.0
-private let FTImageViewBarDefaultMargin: CGFloat =  5.0
-private let FTImageGridViewImageMargin: CGFloat = 2.0
+private let FTImageViewBarDefaultMargin: CGFloat =  0.0
+private let FTImageGridViewImageMargin: CGFloat = 1.0
 private let KCOLOR_BACKGROUND_WHITE = UIColor(red:241/255.0, green:241/255.0, blue:241/255.0, alpha:1.0)
-private var FTImageViewerScreenWidth: CGFloat { return UIScreen.main.bounds.width }
+private var FTImageViewerScreenWidth: CGFloat { return UIScreen.main.bounds.width  }
 private var FTImageViewerScreenHeight: CGFloat { return UIScreen.main.bounds.height }
 
 protocol FTImageResourceProtocol {
@@ -597,32 +597,47 @@ public class FTImageGridView: UIView {
                 views.removeFromSuperview();
             }
         }
-        if imageArray.count > 0 {
+        if imageArray.count > 0{
             FTImageGridViewTapBlock = tapBlock
-            let imgHeight: CGFloat = (frame.size.width - FTImageGridViewImageMargin * 2) / 3
+            let imgHeight: CGFloat = (frame.size.width - FTImageGridViewImageMargin * 2) / 2.5// change 3 to2.5
+            
             for i in 0 ... imageArray.count-1 {
-                let x = CGFloat(i % 3) * (imgHeight + FTImageGridViewImageMargin)
-                let y = CGFloat(i / 3) * (imgHeight + FTImageGridViewImageMargin)
-                let imageButton  = UIButton()
-                imageButton.frame = CGRect(x: x, y: y, width: imgHeight, height: imgHeight)
-                imageButton.backgroundColor = KCOLOR_BACKGROUND_WHITE
-                imageButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFill
-                imageButton.kf.setImage(with: URL(string: imageArray[i])!, for: UIControl.State.normal)
+                if i < 4{
+                    let x = CGFloat(i % 2) * (imgHeight + FTImageGridViewImageMargin)
+                    let y = CGFloat(i / 2) * (imgHeight + FTImageGridViewImageMargin)
+                    let imageButton  = UIButton()
+                    imageButton.frame = CGRect(x: x, y: y, width: imgHeight, height: imgHeight)
+                    imageButton.backgroundColor = KCOLOR_BACKGROUND_WHITE
+                    imageButton.imageView?.contentMode = UIView.ContentMode.scaleAspectFill
+                    imageButton.kf.setImage(with: URL(string: imageArray[i])!, for: UIControl.State.normal)
+                    
+                    imageButton.tag = i
+                    imageButton.clipsToBounds = true
+                    imageButton.addTarget(self, action: #selector(FTImageGridView.onClickImage(_:)), for: UIControl.Event.touchUpInside)
+                    self.addSubview(imageButton)
+                    self.buttonArray.append(imageButton)
+                }
+                else{
+                    let imageButton  = UIButton()
+                    imageButton.tag = i
+                    imageButton.clipsToBounds = true
+                    imageButton.addTarget(self, action: #selector(FTImageGridView.onClickImage(_:)), for: UIControl.Event.touchUpInside)
+                    self.addSubview(imageButton)
+                    self.buttonArray.append(imageButton)
+                    
+                }
+                    
                 
-                imageButton.tag = i
-                imageButton.clipsToBounds = true
-                imageButton.addTarget(self, action: #selector(FTImageGridView.onClickImage(_:)), for: UIControl.Event.touchUpInside)
-                self.addSubview(imageButton)
-                self.buttonArray.append(imageButton)
             }
         }
+        
     }
 
     //MARK: - get Height With Width
 
     public class func getHeightWithWidth(_ width: CGFloat, imgCount: Int) -> CGFloat{
-        let imgHeight: CGFloat = (width - FTImageGridViewImageMargin * 2) / 3
-        let photoAlbumHeight: CGFloat = imgHeight * CGFloat(ceilf(Float(imgCount) / 3)) + FTImageGridViewImageMargin * CGFloat(ceilf(Float(imgCount) / 3)-1)
+        let imgHeight: CGFloat = (width - FTImageGridViewImageMargin * 2) / 1.5 //change 3 to 1.5
+        let photoAlbumHeight: CGFloat = imgHeight * CGFloat(ceilf(Float(imgCount) / 2)) + FTImageGridViewImageMargin * CGFloat(ceilf(Float(imgCount) / 3)-1)
         return photoAlbumHeight
     }
     

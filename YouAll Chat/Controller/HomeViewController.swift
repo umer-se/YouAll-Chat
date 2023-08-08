@@ -23,18 +23,7 @@ class HomeViewController : UIViewController{
     
     let userAutentication = UserAuthentication()
     let postSource = Post()
-    
-    var sources: [UIImage] = [
-        UIImage(systemName: "a.book.closed")!,
-        UIImage(systemName: "a.book.closed")!,
-        UIImage(systemName: "a.book.closed")!,
-        UIImage(systemName: "a.book.closed")!,
-        UIImage(systemName: "a.book.closed")!,
-        UIImage(systemName: "a.book.closed")!,
-        UIImage(systemName: "a.book.closed")!,
-        UIImage(systemName: "a.book.closed")!
-    ]
-    
+
     
     
     override func viewDidLoad() {
@@ -67,7 +56,7 @@ class HomeViewController : UIViewController{
 
 extension HomeViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2;
+        return postSource.images.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,19 +64,11 @@ extension HomeViewController: UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "postIdentifier" , for: indexPath) as! Post
     
-        //cell.setupMultiImagesView()
-        //cell.multipleImagesView.setupImageViewer(urls: cell.images,options: [.contentMode(.center)])
         cell.setupWith(name: "Person \(indexPath.row)",
                        content: "Person \(indexPath.row) said this is a great demo, if you like it, please give me a 'star' or fork the project. I will continue making some more Liberary for you.",
                        imageArray:  cell.images[indexPath.row])
         return cell;
         
-        
-        //cell.iconImageView.image = UIImage(systemName: "a.book.closed")
-        
- 
-        
-        return cell
     }
     
     

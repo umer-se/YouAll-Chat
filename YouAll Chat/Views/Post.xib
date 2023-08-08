@@ -74,6 +74,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="200" id="HSi-QQ-33w"/>
+                            <constraint firstAttribute="width" constant="315" id="UWx-h7-9UF"/>
                         </constraints>
                     </view>
                 </subviews>

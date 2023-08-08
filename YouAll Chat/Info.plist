@@ -32,5 +32,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>just to save photo we need access</string>
 </dict>
 </plist>

@@ -20,6 +20,15 @@
 		044D35012A7E6E0D004A1565 /* UserAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D35002A7E6E0D004A1565 /* UserAuthentication.swift */; };
 		044D35092A80FDA8004A1565 /* Post.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D35082A80FDA8004A1565 /* Post.xib */; };
 		044D350B2A80FDF3004A1565 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D350A2A80FDF3004A1565 /* Post.swift */; };
+		044D35142A821B53004A1565 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D35132A821B53004A1565 /* CollectionCell.xib */; };
+		044D35162A821B88004A1565 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D35152A821B88004A1565 /* CollectionCell.swift */; };
+		044D35182A822BEB004A1565 /* CollectionLastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D35172A822BEB004A1565 /* CollectionLastCell.swift */; };
+		044D351A2A8230D5004A1565 /* CollectionLastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D35192A8230D4004A1565 /* CollectionLastCell.xib */; };
+		044D351D2A823A2F004A1565 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 044D351C2A823A2F004A1565 /* Kingfisher */; };
+		044D351F2A8262A9004A1565 /* DeatilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D351E2A8262A9004A1565 /* DeatilView.swift */; };
+		044D35212A835643004A1565 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D35202A835643004A1565 /* PostModel.swift */; };
+		044D35232A8361B9004A1565 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D35222A8361B9004A1565 /* Constants.swift */; };
+		044D35252A839B64004A1565 /* AttachmentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D35242A839B64004A1565 /* AttachmentContainer.swift */; };
 		A3A9FB40D879CD46A41F6B4C /* Pods_YouAll_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C997C45C0205134AF393DB /* Pods_YouAll_Chat.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +46,14 @@
 		044D35002A7E6E0D004A1565 /* UserAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthentication.swift; sourceTree = "<group>"; };
 		044D35082A80FDA8004A1565 /* Post.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Post.xib; sourceTree = "<group>"; };
 		044D350A2A80FDF3004A1565 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		044D35132A821B53004A1565 /* CollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
+		044D35152A821B88004A1565 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		044D35172A822BEB004A1565 /* CollectionLastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionLastCell.swift; sourceTree = "<group>"; };
+		044D35192A8230D4004A1565 /* CollectionLastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionLastCell.xib; sourceTree = "<group>"; };
+		044D351E2A8262A9004A1565 /* DeatilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatilView.swift; sourceTree = "<group>"; };
+		044D35202A835643004A1565 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		044D35222A8361B9004A1565 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		044D35242A839B64004A1565 /* AttachmentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentContainer.swift; sourceTree = "<group>"; };
 		51E49D0A9B2660423584C50D /* Pods-YouAll Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouAll Chat.release.xcconfig"; path = "Target Support Files/Pods-YouAll Chat/Pods-YouAll Chat.release.xcconfig"; sourceTree = "<group>"; };
 		6D284270AE12B221E56C4A80 /* Pods-YouAll Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouAll Chat.debug.xcconfig"; path = "Target Support Files/Pods-YouAll Chat/Pods-YouAll Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		F8C997C45C0205134AF393DB /* Pods_YouAll_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YouAll_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044D351D2A823A2F004A1565 /* Kingfisher in Frameworks */,
 				044D34F42A7E28F7004A1565 /* FirebaseAuth in Frameworks */,
 				044D34F62A7E28F7004A1565 /* FirebaseFirestore in Frameworks */,
 				A3A9FB40D879CD46A41F6B4C /* Pods_YouAll_Chat.framework in Frameworks */,
@@ -85,6 +103,7 @@
 				044D34E52A7E242C004A1565 /* Assets.xcassets */,
 				044D34EA2A7E242C004A1565 /* Info.plist */,
 				044D34F72A7E2ABB004A1565 /* GoogleService-Info.plist */,
+				044D35222A8361B9004A1565 /* Constants.swift */,
 			);
 			path = "YouAll Chat";
 			sourceTree = "<group>";
@@ -96,6 +115,10 @@
 				044D34E72A7E242C004A1565 /* LaunchScreen.storyboard */,
 				044D35082A80FDA8004A1565 /* Post.xib */,
 				044D350A2A80FDF3004A1565 /* Post.swift */,
+				044D35132A821B53004A1565 /* CollectionCell.xib */,
+				044D35152A821B88004A1565 /* CollectionCell.swift */,
+				044D35192A8230D4004A1565 /* CollectionLastCell.xib */,
+				044D35172A822BEB004A1565 /* CollectionLastCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -105,6 +128,8 @@
 			children = (
 				044D34FC2A7E31B6004A1565 /* SignUpViewController.swift */,
 				044D34FE2A7E3241004A1565 /* HomeViewController.swift */,
+				044D351E2A8262A9004A1565 /* DeatilView.swift */,
+				044D35242A839B64004A1565 /* AttachmentContainer.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -113,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				044D35002A7E6E0D004A1565 /* UserAuthentication.swift */,
+				044D35202A835643004A1565 /* PostModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -145,7 +171,6 @@
 				044D34D52A7E242A004A1565 /* Sources */,
 				044D34D62A7E242A004A1565 /* Frameworks */,
 				044D34D72A7E242A004A1565 /* Resources */,
-				C2A4A9ABFF5ADF69FB6EAC20 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +180,7 @@
 			packageProductDependencies = (
 				044D34F32A7E28F7004A1565 /* FirebaseAuth */,
 				044D34F52A7E28F7004A1565 /* FirebaseFirestore */,
+				044D351C2A823A2F004A1565 /* Kingfisher */,
 			);
 			productName = "YouAll Chat";
 			productReference = 044D34D92A7E242A004A1565 /* YouAll Chat.app */;
@@ -186,6 +212,7 @@
 			mainGroup = 044D34D02A7E242A004A1565;
 			packageReferences = (
 				044D34F22A7E28F7004A1565 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				044D351B2A823A2F004A1565 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 044D34DA2A7E242A004A1565 /* Products */;
 			projectDirPath = "";
@@ -201,9 +228,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044D351A2A8230D5004A1565 /* CollectionLastCell.xib in Resources */,
 				044D34E92A7E242C004A1565 /* LaunchScreen.storyboard in Resources */,
 				044D35092A80FDA8004A1565 /* Post.xib in Resources */,
 				044D34F82A7E2ABB004A1565 /* GoogleService-Info.plist in Resources */,
+				044D35142A821B53004A1565 /* CollectionCell.xib in Resources */,
 				044D34E62A7E242C004A1565 /* Assets.xcassets in Resources */,
 				044D34E42A7E242A004A1565 /* Main.storyboard in Resources */,
 			);
@@ -234,23 +263,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C2A4A9ABFF5ADF69FB6EAC20 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-YouAll Chat/Pods-YouAll Chat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-YouAll Chat/Pods-YouAll Chat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YouAll Chat/Pods-YouAll Chat-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -259,10 +271,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				044D35012A7E6E0D004A1565 /* UserAuthentication.swift in Sources */,
+				044D35232A8361B9004A1565 /* Constants.swift in Sources */,
+				044D35212A835643004A1565 /* PostModel.swift in Sources */,
 				044D34DD2A7E242A004A1565 /* AppDelegate.swift in Sources */,
+				044D35252A839B64004A1565 /* AttachmentContainer.swift in Sources */,
 				044D34FD2A7E31B6004A1565 /* SignUpViewController.swift in Sources */,
+				044D35182A822BEB004A1565 /* CollectionLastCell.swift in Sources */,
 				044D350B2A80FDF3004A1565 /* Post.swift in Sources */,
+				044D35162A821B88004A1565 /* CollectionCell.swift in Sources */,
 				044D34DF2A7E242A004A1565 /* SceneDelegate.swift in Sources */,
+				044D351F2A8262A9004A1565 /* DeatilView.swift in Sources */,
 				044D34FF2A7E3241004A1565 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +511,14 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		044D351B2A823A2F004A1565 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -505,6 +531,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 044D34F22A7E28F7004A1565 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		044D351C2A823A2F004A1565 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 044D351B2A823A2F004A1565 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

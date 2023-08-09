@@ -1,34 +1,3 @@
-PODS:
-  - FTImageViewer (2.0.8):
-    - Kingfisher
-  - ImageViewer.swift (3.3.8)
-  - JNMultipleImages (2.0.4):
-    - SDWebImage
-  - Kingfisher (7.9.0)
-  - SDWebImage (5.17.0):
-    - SDWebImage/Core (= 5.17.0)
-  - SDWebImage/Core (5.17.0)
-
-DEPENDENCIES:
-  - FTImageViewer (~> 2.0.8)
-  - ImageViewer.swift (~> 3.3)
-  - JNMultipleImages (~> 2.0.4)
-
-SPEC REPOS:
-  trunk:
-    - FTImageViewer
-    - ImageViewer.swift
-    - JNMultipleImages
-    - Kingfisher
-    - SDWebImage
-
-SPEC CHECKSUMS:
-  FTImageViewer: 90cdab22cee1ffd82856eb83de03c20b5a6ee538
-  ImageViewer.swift: 284cd8127d31af8e5938674fb9f8e695a4cdf6c6
-  JNMultipleImages: 506c677bcbd9d5bd95918c60a07be7d8a19fd28a
-  Kingfisher: 59f908b6d2f403b0a3e539debb0eec05cb27002c
-  SDWebImage: 750adf017a315a280c60fde706ab1e552a3ae4e9
-
-PODFILE CHECKSUM: 09726d3d1c76469ffd436bd1cca28d74fb2aef4d
+PODFILE CHECKSUM: c0782c50c03481ed4fa93f987c637da16e3b7654
 
 COCOAPODS: 1.12.1

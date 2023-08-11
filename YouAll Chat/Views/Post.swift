@@ -76,7 +76,6 @@ extension Post: UICollectionViewDataSource{
             return 4
         }
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionCell.Identifier, for: indexPath as IndexPath) as! CollectionCell
         

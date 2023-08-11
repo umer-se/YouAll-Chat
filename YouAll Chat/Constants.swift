@@ -16,7 +16,6 @@ struct FStore{
 
 struct K {
     
-    static let container = "attachmentContainer"
-    static let containerImage = "containerImage"
-    static let containerID = "AttachmentContainer"
+    static let userFeedPostsIdentifier = "postIdentifier"
+    static let attachmentImageIdentifier = "attachmentImage"
 }

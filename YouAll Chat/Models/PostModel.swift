@@ -6,13 +6,10 @@
 //
 
 import UIKit
-struct POstModel {
+struct PostModel {
     let sender : String
-    let description: String?
-    let postImage: [UIImage]?
+    let postBody: String?
+    let postImages: [UIImage]?
     let time: Date
-    let userImage: UIImage?
-    
-    
     
 }

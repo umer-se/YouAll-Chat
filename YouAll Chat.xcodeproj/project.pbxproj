@@ -16,7 +16,6 @@
 		044D34F62A7E28F7004A1565 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 044D34F52A7E28F7004A1565 /* FirebaseFirestore */; };
 		044D34F82A7E2ABB004A1565 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 044D34F72A7E2ABB004A1565 /* GoogleService-Info.plist */; };
 		044D34FD2A7E31B6004A1565 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D34FC2A7E31B6004A1565 /* SignUpViewController.swift */; };
-		044D34FF2A7E3241004A1565 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D34FE2A7E3241004A1565 /* HomeViewController.swift */; };
 		044D35012A7E6E0D004A1565 /* UserAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D35002A7E6E0D004A1565 /* UserAuthentication.swift */; };
 		044D35092A80FDA8004A1565 /* Post.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D35082A80FDA8004A1565 /* Post.xib */; };
 		044D350B2A80FDF3004A1565 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D350A2A80FDF3004A1565 /* Post.swift */; };
@@ -28,7 +27,8 @@
 		044D351F2A8262A9004A1565 /* DeatilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D351E2A8262A9004A1565 /* DeatilView.swift */; };
 		044D35212A835643004A1565 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D35202A835643004A1565 /* PostModel.swift */; };
 		044D35232A8361B9004A1565 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D35222A8361B9004A1565 /* Constants.swift */; };
-		044D35252A839B64004A1565 /* AttachmentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D35242A839B64004A1565 /* AttachmentContainer.swift */; };
+		044D352C2A83AB41004A1565 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D352B2A83AB41004A1565 /* HomeViewController.swift */; };
+		045E8CE92A84CE43004A1051 /* AttachmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045E8CE82A84CE43004A1051 /* AttachmentCell.swift */; };
 		A3A9FB40D879CD46A41F6B4C /* Pods_YouAll_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C997C45C0205134AF393DB /* Pods_YouAll_Chat.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +42,6 @@
 		044D34EA2A7E242C004A1565 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		044D34F72A7E2ABB004A1565 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		044D34FC2A7E31B6004A1565 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		044D34FE2A7E3241004A1565 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		044D35002A7E6E0D004A1565 /* UserAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthentication.swift; sourceTree = "<group>"; };
 		044D35082A80FDA8004A1565 /* Post.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Post.xib; sourceTree = "<group>"; };
 		044D350A2A80FDF3004A1565 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -53,7 +52,8 @@
 		044D351E2A8262A9004A1565 /* DeatilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatilView.swift; sourceTree = "<group>"; };
 		044D35202A835643004A1565 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		044D35222A8361B9004A1565 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		044D35242A839B64004A1565 /* AttachmentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentContainer.swift; sourceTree = "<group>"; };
+		044D352B2A83AB41004A1565 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		045E8CE82A84CE43004A1051 /* AttachmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentCell.swift; sourceTree = "<group>"; };
 		51E49D0A9B2660423584C50D /* Pods-YouAll Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouAll Chat.release.xcconfig"; path = "Target Support Files/Pods-YouAll Chat/Pods-YouAll Chat.release.xcconfig"; sourceTree = "<group>"; };
 		6D284270AE12B221E56C4A80 /* Pods-YouAll Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouAll Chat.debug.xcconfig"; path = "Target Support Files/Pods-YouAll Chat/Pods-YouAll Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		F8C997C45C0205134AF393DB /* Pods_YouAll_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YouAll_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +119,7 @@
 				044D35152A821B88004A1565 /* CollectionCell.swift */,
 				044D35192A8230D4004A1565 /* CollectionLastCell.xib */,
 				044D35172A822BEB004A1565 /* CollectionLastCell.swift */,
+				045E8CE82A84CE43004A1051 /* AttachmentCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -127,9 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				044D34FC2A7E31B6004A1565 /* SignUpViewController.swift */,
-				044D34FE2A7E3241004A1565 /* HomeViewController.swift */,
+				044D352B2A83AB41004A1565 /* HomeViewController.swift */,
 				044D351E2A8262A9004A1565 /* DeatilView.swift */,
-				044D35242A839B64004A1565 /* AttachmentContainer.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -270,18 +270,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045E8CE92A84CE43004A1051 /* AttachmentCell.swift in Sources */,
 				044D35012A7E6E0D004A1565 /* UserAuthentication.swift in Sources */,
 				044D35232A8361B9004A1565 /* Constants.swift in Sources */,
 				044D35212A835643004A1565 /* PostModel.swift in Sources */,
 				044D34DD2A7E242A004A1565 /* AppDelegate.swift in Sources */,
-				044D35252A839B64004A1565 /* AttachmentContainer.swift in Sources */,
 				044D34FD2A7E31B6004A1565 /* SignUpViewController.swift in Sources */,
 				044D35182A822BEB004A1565 /* CollectionLastCell.swift in Sources */,
 				044D350B2A80FDF3004A1565 /* Post.swift in Sources */,
 				044D35162A821B88004A1565 /* CollectionCell.swift in Sources */,
 				044D34DF2A7E242A004A1565 /* SceneDelegate.swift in Sources */,
 				044D351F2A8262A9004A1565 /* DeatilView.swift in Sources */,
-				044D34FF2A7E3241004A1565 /* HomeViewController.swift in Sources */,
+				044D352C2A83AB41004A1565 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

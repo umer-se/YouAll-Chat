@@ -7,6 +7,7 @@ use_frameworks!
 #pod 'JNMultipleImages', '~> 2.0.4'
 #pod 'ImageViewer.swift', '~> 3.3'
 #pod 'FTImageViewer', '~> 2.0.8'
+#pod 'SubviewAttachingTextView' , '~> 1.5.1' 
 
   # Pods for YouAll Chat
 

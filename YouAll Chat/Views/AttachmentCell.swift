@@ -9,7 +9,10 @@ import UIKit
 
 class AttachmentCell: UICollectionViewCell{
     
+    @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var attachmentImage: UIImageView!
+    
+    var attachmentImageModel :AttachmentImage?
     
     override var isSelected: Bool {
         didSet {
@@ -22,6 +25,10 @@ class AttachmentCell: UICollectionViewCell{
         }
     }
     
+    
+    func setupImageCell (pickedImage : UIImage){
+        attachmentImage.image = pickedImage
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

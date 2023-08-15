@@ -9,7 +9,7 @@ import UIKit
 struct PostModel {
     let sender : String
     let postBody: String?
-    let postImages: [UIImage]?
+    let postImages: [String]?
     let time: Date
     
 }

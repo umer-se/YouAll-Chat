@@ -9,13 +9,14 @@ import Foundation
 struct FStore{
     static let PostCollection = "Posts"
     static let Postsender = "sender"
-    static let PostDescription = "description"
+    static let PostBody = "postbody"
     static let dateField = "date"
+    static let postImages = "postImages"
     
 }
 
 struct K {
     
     static let userFeedPostsIdentifier = "postIdentifier"
-    static let attachmentImageIdentifier = "attachmentImage"
+    static let attachmentImageIdentifier = "attachmentCell"
 }

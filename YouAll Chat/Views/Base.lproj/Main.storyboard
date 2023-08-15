@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -168,36 +167,7 @@
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="10" minY="5" maxX="0.0" maxY="5"/>
                                                 </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="attachmentImage" id="UAc-hv-ezJ" customClass="AttachmentCell" customModule="YouAll_Chat" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="5.666666666666667" width="40" height="39"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fFh-v4-1QX">
-                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="39"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kingfisher-1.jpg" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="goZ-G4-MMB" userLabel="imageView">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="39"/>
-                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small" weight="ultraLight"/>
-                                                                </imageView>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="goZ-G4-MMB" secondAttribute="trailing" id="FKZ-7v-Iag"/>
-                                                                <constraint firstItem="goZ-G4-MMB" firstAttribute="leading" secondItem="fFh-v4-1QX" secondAttribute="leading" id="SZ0-cO-ZPH"/>
-                                                                <constraint firstAttribute="bottom" secondItem="goZ-G4-MMB" secondAttribute="bottom" id="gwp-w9-CuV"/>
-                                                                <constraint firstItem="goZ-G4-MMB" firstAttribute="top" secondItem="fFh-v4-1QX" secondAttribute="top" id="hcm-Ub-rlU"/>
-                                                            </constraints>
-                                                        </collectionViewCellContentView>
-                                                        <size key="customSize" width="40" height="39"/>
-                                                        <connections>
-                                                            <outlet property="attachmentImage" destination="goZ-G4-MMB" id="0Q4-Dg-9p8"/>
-                                                        </connections>
-                                                    </collectionViewCell>
-                                                </cells>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="ifW-SP-0G1" id="Sbf-FN-AWc"/>
-                                                    <outlet property="delegate" destination="ifW-SP-0G1" id="Mve-kR-Lce"/>
-                                                </connections>
+                                                <cells/>
                                             </collectionView>
                                         </subviews>
                                     </stackView>
@@ -360,7 +330,6 @@
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
-        <image name="kingfisher-1.jpg" width="250" height="250"/>
         <image name="minus.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="paperplane.fill" catalog="system" width="128" height="119"/>
         <image name="photo.fill" catalog="system" width="128" height="93"/>

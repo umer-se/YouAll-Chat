@@ -8,6 +8,7 @@
 protocol AttachmentDataSourceDelegate {
     func didSelectItems()
     func didDeselectItems()
+   
 }
 
 
@@ -18,8 +19,7 @@ import UIKit
 class AttachmentImageDataSource : NSObject{
     
     var delegate : AttachmentDataSourceDelegate?
-    var imagesFromDataSource : [AttachmentImage] = []
-    
+    var progressBar = [Progress] ()
     var images: [UIImage] = []
     var deleteButtonValue: Bool = false
 }
@@ -37,6 +37,8 @@ extension AttachmentImageDataSource : UICollectionViewDataSource, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.attachmentImageIdentifier, for: indexPath) as! AttachmentCell
         
         cell.setupImageCell(pickedImage: images[indexPath.item])
+       
+        
         
         return cell
         
@@ -57,6 +59,7 @@ extension AttachmentImageDataSource : UICollectionViewDataSource, UICollectionVi
         }
         
     }
+    
     
     func deleteItems(at indexPath: [Int]){
         

@@ -35,6 +35,8 @@
 		04A21D792A876711004F87F1 /* AttachmentImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A21D782A876711004F87F1 /* AttachmentImageDataSource.swift */; };
 		04A21D7D2A876914004F87F1 /* AttachmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A21D7C2A876914004F87F1 /* AttachmentCell.xib */; };
 		04A21D7F2A87834E004F87F1 /* AttachmentImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A21D7E2A87834E004F87F1 /* AttachmentImage.swift */; };
+		04F5DECC2A8B518E00DD549D /* AddNewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5DECB2A8B518E00DD549D /* AddNewPost.swift */; };
+		04F5DED02A8E1FAD00DD549D /* PostsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5DECF2A8E1FAD00DD549D /* PostsDataSource.swift */; };
 		A3A9FB40D879CD46A41F6B4C /* Pods_YouAll_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C997C45C0205134AF393DB /* Pods_YouAll_Chat.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,8 @@
 		04A21D782A876711004F87F1 /* AttachmentImageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentImageDataSource.swift; sourceTree = "<group>"; };
 		04A21D7C2A876914004F87F1 /* AttachmentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttachmentCell.xib; sourceTree = "<group>"; };
 		04A21D7E2A87834E004F87F1 /* AttachmentImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentImage.swift; sourceTree = "<group>"; };
+		04F5DECB2A8B518E00DD549D /* AddNewPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPost.swift; sourceTree = "<group>"; };
+		04F5DECF2A8E1FAD00DD549D /* PostsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsDataSource.swift; sourceTree = "<group>"; };
 		51E49D0A9B2660423584C50D /* Pods-YouAll Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouAll Chat.release.xcconfig"; path = "Target Support Files/Pods-YouAll Chat/Pods-YouAll Chat.release.xcconfig"; sourceTree = "<group>"; };
 		6D284270AE12B221E56C4A80 /* Pods-YouAll Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouAll Chat.debug.xcconfig"; path = "Target Support Files/Pods-YouAll Chat/Pods-YouAll Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		F8C997C45C0205134AF393DB /* Pods_YouAll_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YouAll_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +158,8 @@
 				044D35202A835643004A1565 /* PostModel.swift */,
 				04A21D782A876711004F87F1 /* AttachmentImageDataSource.swift */,
 				04A21D7E2A87834E004F87F1 /* AttachmentImage.swift */,
+				04F5DECB2A8B518E00DD549D /* AddNewPost.swift */,
+				04F5DECF2A8E1FAD00DD549D /* PostsDataSource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,10 +296,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				045E8CE92A84CE43004A1051 /* AttachmentCell.swift in Sources */,
+				04F5DED02A8E1FAD00DD549D /* PostsDataSource.swift in Sources */,
 				044D35012A7E6E0D004A1565 /* UserAuthentication.swift in Sources */,
 				044D35232A8361B9004A1565 /* Constants.swift in Sources */,
 				04A21D792A876711004F87F1 /* AttachmentImageDataSource.swift in Sources */,
 				044D35212A835643004A1565 /* PostModel.swift in Sources */,
+				04F5DECC2A8B518E00DD549D /* AddNewPost.swift in Sources */,
 				044D34DD2A7E242A004A1565 /* AppDelegate.swift in Sources */,
 				044D34FD2A7E31B6004A1565 /* SignUpViewController.swift in Sources */,
 				044D35182A822BEB004A1565 /* CollectionLastCell.swift in Sources */,

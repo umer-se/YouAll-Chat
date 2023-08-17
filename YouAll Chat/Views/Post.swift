@@ -28,23 +28,7 @@ class Post : UITableViewCell {
     let collectionCell = CollectionCell()
     let collectionLastCell = CollectionLastCell()
     
-    let images: [String]  = [
-        
-        "https://static.pexels.com/photos/257360/pexels-photo-257360.jpeg",
-        "https://i.pinimg.com/originals/c2/19/53/c21953f3ad4a17d96eb80d649bc8149b.jpg",
-        "https://www-tc.pbs.org/wnet/nature/files/2017/03/1007.jpg",
-      // "https://images.pexels.com/photos/514241/pexels-photo-514241.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb",
-        //  "https://www-tc.pbs.org/wnet/nature/files/2017/03/1007.jpg",
-      //     "https://i.pinimg.com/736x/53/62/a9/5362a940ab654152d8411b0d2f56d874--sunrise-pictures-nature-pictures.jpg",
-        //"https://static.pexels.com/photos/257360/pexels-photo-257360.jpeg",
-        //   "https://www-tc.pbs.org/wnet/nature/files/2017/03/1007.jpg",
-        //     "https://i.pinimg.com/736x/53/62/a9/5362a940ab654152d8411b0d2f56d874--sunrise-pictures-nature-pictures.jpg",
-        //     "https://www-tc.pbs.org/wnet/nature/files/2017/03/1007.jpg",
-        //     "https://i.pinimg.com/736x/53/62/a9/5362a940ab654152d8411b0d2f56d874--sunrise-pictures-nature-pictures.jpg",
-        //     "https://static.pexels.com/photos/257360/pexels-photo-257360.jpeg",
-        //     "https://static.pexels.com/photos/257360/pexels-photo-257360.jpeg",
-        //     "https://static.pexels.com/photos/257360/pexels-photo-257360.jpeg",
-    ]
+    var images: [String]  = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,6 +37,14 @@ class Post : UITableViewCell {
         
     }
     
+    
+    func setupRow(sender :String ,postBodey: String , postImages: [String],time: String ){
+        self.name.text = sender
+        self.postDescription.text = postBodey
+        self.time.text = time
+        self.images = postImages
+        
+    }
     
     //MARK: - IBActions
     
@@ -71,39 +63,49 @@ class Post : UITableViewCell {
 extension Post: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if images.count < 4{
+            if images.count==0{
+                collectionView.isHidden = true
+            }
             return images.count
         }else{
             return 4
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionCell.Identifier, for: indexPath as IndexPath) as! CollectionCell
-        
-        let lastCell = collectionView.dequeueReusableCell(withReuseIdentifier:collectionLastCell.identifier, for: indexPath as IndexPath) as! CollectionLastCell
-        
-        if indexPath.row < 3{
-            
-            cell.mainView.backgroundColor = UIColor.red
-            let url = URL(string: images[indexPath.row])
-            cell.mainView.kf.setImage(with: url)
-            cell.mainView.contentMode = .scaleAspectFill
+        if images.count == 0{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionCell.Identifier, for: indexPath as IndexPath) as! CollectionCell
             return cell
             
-        }else{
-            let count = images.count - 4
-            if count == 0{
-                lastCell.photoCounter.isHidden = true
-                lastCell.lastImage.alpha = 1.0
-            }
-            lastCell.photoCounter.text = String(count)
-            let url = URL(string: images[indexPath.row])
-            lastCell.lastImage.kf.setImage(with: url)
             
-            lastCell.lastImage.contentMode = .scaleAspectFill
-            return lastCell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionCell.Identifier, for: indexPath as IndexPath) as! CollectionCell
+            
+            let lastCell = collectionView.dequeueReusableCell(withReuseIdentifier:collectionLastCell.identifier, for: indexPath as IndexPath) as! CollectionLastCell
+            
+            if indexPath.row < 3{
+                
+                cell.mainView.backgroundColor = UIColor.red
+                let url = URL(string: images[indexPath.row])
+                cell.mainView.kf.setImage(with: url)
+                cell.mainView.contentMode = .scaleAspectFill
+                return cell
+                
+            }else{
+                let count = images.count - 4
+                if count == 0{
+                    lastCell.photoCounter.isHidden = true
+                    lastCell.lastImage.alpha = 1.0
+                }
+                lastCell.photoCounter.text = String(count)
+                let url = URL(string: images[indexPath.row])
+                lastCell.lastImage.kf.setImage(with: url)
+                
+                lastCell.lastImage.contentMode = .scaleAspectFill
+                return lastCell
+            }
+            
+            
         }
-        
-        
     }
 }
 //MARK: - CollectionView Delegate
@@ -130,18 +132,21 @@ extension Post: UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
             return CGSize(width: width , height: height)
             
         case 2:
-            return CGSize(width:width / 2 , height: height)
+            return CGSize(width:(width / 2)-1 , height: height)
         
         case 3:
             if indexPath.row == 2{
-                return CGSize(width:width , height: height / 2)
+                return CGSize(width:width , height: (height / 2)-1)
             }
-            return CGSize(width:(width / 2)-1 , height: height / 2)
+            return CGSize(width:(width / 2)-1 , height: (height / 2)-1)
         
-        default:
-            return CGSize(width:width / 2 , height: height / 2)
+        case 4...:
+            return CGSize(width:(width / 2)-1 , height: (height / 2)-1)
          
-            }
+        default:
+            customCollectionView.bounds.size.height = 1.0
+            return CGSize(width:0, height: 0)
+        }
     }
     
 

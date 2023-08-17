@@ -8,11 +8,11 @@
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postIdentifier" rowHeight="377" id="6Oe-Va-5GH" customClass="Post" customModule="YouAll_Chat" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="365" height="377"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postIdentifier" rowHeight="372" id="6Oe-Va-5GH" customClass="Post" customModule="YouAll_Chat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="365" height="372"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Oe-Va-5GH" id="xK8-8s-LCk">
-                <rect key="frame" x="0.0" y="0.0" width="365" height="377"/>
+                <rect key="frame" x="0.0" y="0.0" width="365" height="372"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xUs-jd-6Py" userLabel="user image">
@@ -23,7 +23,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Umer Shoukat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpc-SB-YO9" userLabel="user Name">
-                        <rect key="frame" x="75" y="16" width="105" height="18"/>
+                        <rect key="frame" x="75" y="16" width="104.33333333333331" height="18"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -35,42 +35,47 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWX-ls-Teg" userLabel="description">
-                        <rect key="frame" x="20" y="63" width="325" height="73"/>
+                        <rect key="frame" x="20" y="63" width="325" height="43"/>
                         <string key="text">this is a decription field for a post it will show it there is any text in the user field if there is no description in post decription it will be hidden</string>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbO-2c-xih">
-                        <rect key="frame" x="20" y="341" width="140" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="Ffj-Hz-JY5"/>
-                            <constraint firstAttribute="width" constant="140" id="Gph-xb-iuO"/>
-                        </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup" catalog="system" title="Like" imagePadding="10">
-                            <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </buttonConfiguration>
-                        <connections>
-                            <action selector="likeButtonPressed:" destination="6Oe-Va-5GH" eventType="touchUpInside" id="71h-ry-iST"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmF-Dq-v5j">
-                        <rect key="frame" x="205" y="341" width="140" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="140" id="U6A-3l-tGU"/>
-                            <constraint firstAttribute="height" constant="30" id="eKR-d3-UGg"/>
-                        </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="bubble.right" catalog="system" title="Comment" imagePadding="10">
-                            <color key="baseForegroundColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
-                        </buttonConfiguration>
-                        <connections>
-                            <action selector="commentButtonPressed:" destination="6Oe-Va-5GH" eventType="touchUpInside" id="ySh-Pf-uAV"/>
-                        </connections>
-                    </button>
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="k8P-Jl-LMz" userLabel="interaction buttons">
+                        <rect key="frame" x="20" y="336" width="325" height="30"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbO-2c-xih">
+                                <rect key="frame" x="0.0" y="0.0" width="140" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ffj-Hz-JY5"/>
+                                    <constraint firstAttribute="width" constant="140" id="Gph-xb-iuO"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup" catalog="system" title="Like" imagePadding="10">
+                                    <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="likeButtonPressed:" destination="6Oe-Va-5GH" eventType="touchUpInside" id="71h-ry-iST"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmF-Dq-v5j">
+                                <rect key="frame" x="185" y="0.0" width="140" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="U6A-3l-tGU"/>
+                                    <constraint firstAttribute="height" constant="30" id="eKR-d3-UGg"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="bubble.right" catalog="system" title="Comment" imagePadding="10">
+                                    <color key="baseForegroundColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="commentButtonPressed:" destination="6Oe-Va-5GH" eventType="touchUpInside" id="ySh-Pf-uAV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </stackView>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="36f-wl-dT6">
-                        <rect key="frame" x="20" y="136" width="325" height="200"/>
+                        <rect key="frame" x="20" y="106" width="325" height="200"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="325" id="FWJ-uB-s0d"/>
@@ -91,21 +96,22 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="HWX-ls-Teg" secondAttribute="trailing" constant="20" id="2GR-gQ-Hbj"/>
                     <constraint firstItem="xUs-jd-6Py" firstAttribute="top" secondItem="xK8-8s-LCk" secondAttribute="top" constant="5" id="89y-xl-yXt"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="k8P-Jl-LMz" secondAttribute="bottom" constant="-28" id="Ayp-vV-X30"/>
                     <constraint firstItem="36f-wl-dT6" firstAttribute="leading" secondItem="xK8-8s-LCk" secondAttribute="leadingMargin" id="Br3-0T-nzV"/>
-                    <constraint firstItem="TmF-Dq-v5j" firstAttribute="bottom" secondItem="xK8-8s-LCk" secondAttribute="bottomMargin" constant="5" id="KO5-J3-2r0"/>
+                    <constraint firstAttribute="trailing" secondItem="k8P-Jl-LMz" secondAttribute="trailing" constant="5" id="LQe-Gm-JIb"/>
                     <constraint firstItem="HWX-ls-Teg" firstAttribute="top" secondItem="xUs-jd-6Py" secondAttribute="bottom" constant="8" id="Lk7-RS-Oxr"/>
+                    <constraint firstItem="36f-wl-dT6" firstAttribute="top" secondItem="HWX-ls-Teg" secondAttribute="bottom" id="MJU-Aj-YCd"/>
                     <constraint firstItem="vpc-SB-YO9" firstAttribute="leading" secondItem="xUs-jd-6Py" secondAttribute="trailing" constant="5" id="N97-r7-mVA"/>
+                    <constraint firstItem="k8P-Jl-LMz" firstAttribute="leading" secondItem="36f-wl-dT6" secondAttribute="leading" id="OKB-BS-nmw"/>
                     <constraint firstItem="Kfl-oc-FAs" firstAttribute="leading" secondItem="xUs-jd-6Py" secondAttribute="trailing" constant="5" id="Poe-rs-h9y"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="TmF-Dq-v5j" secondAttribute="trailing" id="XPI-Dq-qb8"/>
                     <constraint firstItem="xUs-jd-6Py" firstAttribute="leading" secondItem="xK8-8s-LCk" secondAttribute="leading" constant="20" id="aiz-De-bZ3"/>
                     <constraint firstAttribute="trailingMargin" secondItem="36f-wl-dT6" secondAttribute="trailing" id="c1O-nK-v2v"/>
                     <constraint firstItem="HWX-ls-Teg" firstAttribute="leading" secondItem="xK8-8s-LCk" secondAttribute="leading" constant="20" id="e6H-es-OGz"/>
                     <constraint firstItem="Kfl-oc-FAs" firstAttribute="top" secondItem="vpc-SB-YO9" secondAttribute="bottom" id="fGm-kn-sk1"/>
+                    <constraint firstAttribute="bottom" secondItem="k8P-Jl-LMz" secondAttribute="bottom" constant="5" id="gER-8Y-q3Z"/>
                     <constraint firstItem="vpc-SB-YO9" firstAttribute="top" secondItem="xK8-8s-LCk" secondAttribute="topMargin" constant="5" id="gOC-u8-QwQ"/>
-                    <constraint firstItem="AbO-2c-xih" firstAttribute="top" secondItem="36f-wl-dT6" secondAttribute="bottom" constant="5" id="gpk-zB-bNw"/>
-                    <constraint firstItem="AbO-2c-xih" firstAttribute="leading" secondItem="xK8-8s-LCk" secondAttribute="leadingMargin" id="hd5-bi-E3a"/>
-                    <constraint firstItem="AbO-2c-xih" firstAttribute="bottom" secondItem="xK8-8s-LCk" secondAttribute="bottomMargin" constant="5" id="pWp-Iu-LSi"/>
-                    <constraint firstItem="36f-wl-dT6" firstAttribute="top" secondItem="HWX-ls-Teg" secondAttribute="bottom" id="pc5-CR-HMX"/>
+                    <constraint firstItem="k8P-Jl-LMz" firstAttribute="top" secondItem="HWX-ls-Teg" secondAttribute="bottom" constant="230" id="jna-1V-Se8"/>
+                    <constraint firstItem="k8P-Jl-LMz" firstAttribute="leading" secondItem="xK8-8s-LCk" secondAttribute="leading" constant="5" id="za4-9I-ORb"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -115,7 +121,7 @@
                 <outlet property="postDescription" destination="HWX-ls-Teg" id="me1-kD-kS9"/>
                 <outlet property="time" destination="Kfl-oc-FAs" id="Rzo-qO-CXy"/>
             </connections>
-            <point key="canvasLocation" x="2682" y="-513"/>
+            <point key="canvasLocation" x="2678.6259541984732" y="-530.98591549295782"/>
         </tableViewCell>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
     </objects>

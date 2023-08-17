@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="40" height="39"/>
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small" weight="ultraLight"/>
                     </imageView>
-                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.30000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="Vkv-RV-ssW">
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vkv-RV-ssW">
                         <rect key="frame" x="0.0" y="35" width="40" height="4"/>
                         <color key="progressTintColor" name="AccentColor"/>
                         <color key="trackTintColor" red="0.0" green="0.45882352939999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

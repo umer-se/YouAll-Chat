@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class AttachmentCell: UICollectionViewCell{
     
@@ -13,6 +14,9 @@ class AttachmentCell: UICollectionViewCell{
     @IBOutlet weak var attachmentImage: UIImageView!
     
     var attachmentImageModel :AttachmentImage?
+    let serialQueue = DispatchQueue(label: "imageUpload")
+    
+    var imageUrl : String = "nil"
     
     override var isSelected: Bool {
         didSet {
@@ -30,6 +34,11 @@ class AttachmentCell: UICollectionViewCell{
         attachmentImage.image = pickedImage
     }
     
+    func setProgress(value: Float){
+        
+        progressBar.progress = value
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -37,3 +46,13 @@ class AttachmentCell: UICollectionViewCell{
     }
     
 }
+
+
+//MARK: - Upload image
+
+extension AttachmentCell{
+    
+
+}
+
+

@@ -50,19 +50,19 @@ class SignUpViewController : UIViewController{
         if let OTP = oTPField.text {
             // doing sign in process here instead of donig it in userAuthentication class because of sync or thread issues after learning more about dispatchques and such  move this block of code to user authentication
             let credential = self.userAuthentication.logIn(OTP)
-                Auth.auth().signIn(with: credential) { authResult, error in
-                    
-                    if let error = error {
-                        // handle error properly here
-                        print(error)
-                    }else{
-                        //sign in
-                        self.oTPView.isHidden = !self.oTPView.isHidden
-                        self.phoneNumberView.isHidden = !self.phoneNumberView.isHidden
-                        self.logInView()
-                    }
-                    
+            Auth.auth().signIn(with: credential) { authResult, error in
+                
+                if let error = error {
+                    // handle error properly here
+                    print(error)
+                }else{
+                    //sign in
+                    self.oTPView.isHidden = !self.oTPView.isHidden
+                    self.phoneNumberView.isHidden = !self.phoneNumberView.isHidden
+                    self.logInView()
                 }
+                
+            }
         }
     }
     

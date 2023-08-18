@@ -37,6 +37,7 @@
 		04A21D7F2A87834E004F87F1 /* AttachmentImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A21D7E2A87834E004F87F1 /* AttachmentImage.swift */; };
 		04F5DECC2A8B518E00DD549D /* AddNewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5DECB2A8B518E00DD549D /* AddNewPost.swift */; };
 		04F5DED02A8E1FAD00DD549D /* PostsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5DECF2A8E1FAD00DD549D /* PostsDataSource.swift */; };
+		04F5DED62A8F843A00DD549D /* CollectionViewDequeueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5DED52A8F843A00DD549D /* CollectionViewDequeueProtocol.swift */; };
 		A3A9FB40D879CD46A41F6B4C /* Pods_YouAll_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C997C45C0205134AF393DB /* Pods_YouAll_Chat.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		04A21D7E2A87834E004F87F1 /* AttachmentImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentImage.swift; sourceTree = "<group>"; };
 		04F5DECB2A8B518E00DD549D /* AddNewPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPost.swift; sourceTree = "<group>"; };
 		04F5DECF2A8E1FAD00DD549D /* PostsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsDataSource.swift; sourceTree = "<group>"; };
+		04F5DED52A8F843A00DD549D /* CollectionViewDequeueProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDequeueProtocol.swift; sourceTree = "<group>"; };
 		51E49D0A9B2660423584C50D /* Pods-YouAll Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouAll Chat.release.xcconfig"; path = "Target Support Files/Pods-YouAll Chat/Pods-YouAll Chat.release.xcconfig"; sourceTree = "<group>"; };
 		6D284270AE12B221E56C4A80 /* Pods-YouAll Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouAll Chat.debug.xcconfig"; path = "Target Support Files/Pods-YouAll Chat/Pods-YouAll Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		F8C997C45C0205134AF393DB /* Pods_YouAll_Chat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YouAll_Chat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,7 @@
 				04A21D7E2A87834E004F87F1 /* AttachmentImage.swift */,
 				04F5DECB2A8B518E00DD549D /* AddNewPost.swift */,
 				04F5DECF2A8E1FAD00DD549D /* PostsDataSource.swift */,
+				04F5DED52A8F843A00DD549D /* CollectionViewDequeueProtocol.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				044D35182A822BEB004A1565 /* CollectionLastCell.swift in Sources */,
 				044D350B2A80FDF3004A1565 /* Post.swift in Sources */,
 				044D35162A821B88004A1565 /* CollectionCell.swift in Sources */,
+				04F5DED62A8F843A00DD549D /* CollectionViewDequeueProtocol.swift in Sources */,
 				04A21D7F2A87834E004F87F1 /* AttachmentImage.swift in Sources */,
 				044D34DF2A7E242A004A1565 /* SceneDelegate.swift in Sources */,
 				044D351F2A8262A9004A1565 /* DeatilView.swift in Sources */,

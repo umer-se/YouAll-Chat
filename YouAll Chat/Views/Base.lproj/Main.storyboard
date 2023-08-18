@@ -119,7 +119,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1941.5999999999999" y="-2.2167487684729066"/>
+            <point key="canvasLocation" x="1932" y="-2"/>
         </scene>
         <!--Item-->
         <scene sceneID="vVC-NC-PNW">
@@ -149,9 +149,9 @@
                                         <rect key="frame" x="0.0" y="90" width="265.66666666666669" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asT-aP-p7x" userLabel="delete button">
-                                                <rect key="frame" x="0.0" y="0.0" width="54.666666666666664" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="50"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="minus.rectangle.fill" catalog="system">
+                                                <buttonConfiguration key="configuration" style="plain" image="xmark.bin" catalog="system">
                                                     <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -159,7 +159,7 @@
                                                 </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rvv-sX-Pyd" userLabel="attachmentView">
-                                                <rect key="frame" x="62.666666666666686" y="0.0" width="203" height="50"/>
+                                                <rect key="frame" x="62.999999999999986" y="0.0" width="202.66666666666663" height="50"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Vgo-VU-vhG">
                                                     <size key="itemSize" width="40" height="40"/>
@@ -177,7 +177,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Xn-Kt-hPA" userLabel="image attachment">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="fCd-6W-OOm"/>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="fCd-6W-OOm"/>
                                                     <constraint firstAttribute="height" constant="30" id="pC5-FR-Z7O"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
@@ -273,7 +273,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5E-xc-0HV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2648.8000000000002" y="-2.2167487684729066"/>
+            <point key="canvasLocation" x="2626" y="-2"/>
         </scene>
         <!--Detail View-->
         <scene sceneID="Siq-Dd-dMg">
@@ -307,7 +307,7 @@
                 <swipeGestureRecognizer direction="right" id="Dhd-w0-5yK" userLabel="right swipe"/>
                 <swipeGestureRecognizer direction="left" id="Sim-xf-7xq" userLabel="left swipe"/>
             </objects>
-            <point key="canvasLocation" x="3391" y="-2"/>
+            <point key="canvasLocation" x="3311" y="-2"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rfw-mj-NUf">
@@ -325,14 +325,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jhm-RK-y0c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="999.20000000000005" y="-2.2167487684729066"/>
+            <point key="canvasLocation" x="1230" y="-2"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
-        <image name="minus.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="paperplane.fill" catalog="system" width="128" height="119"/>
         <image name="photo.fill" catalog="system" width="128" height="93"/>
+        <image name="xmark.bin" catalog="system" width="128" height="92"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

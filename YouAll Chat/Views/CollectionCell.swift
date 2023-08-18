@@ -14,14 +14,12 @@ class CollectionCell : UICollectionViewCell {
     
     @IBOutlet weak var mainView: UIImageView!
     
+ 
     
-    
-    override  func awakeFromNib() {
-
-        
-        
+    override func prepareForReuse() {
+        self.mainView.image = nil
     }
-       
+    
     
 }
 

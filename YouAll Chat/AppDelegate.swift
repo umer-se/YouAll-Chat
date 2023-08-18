@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppCheck.setAppCheckProviderFactory(providerFactory)
 
         FirebaseApp.configure()
+        _ = Firestore.firestore()
         
         return true
     }

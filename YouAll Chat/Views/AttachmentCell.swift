@@ -48,11 +48,3 @@ class AttachmentCell: UICollectionViewCell{
 }
 
 
-//MARK: - Upload image
-
-extension AttachmentCell{
-    
-
-}
-
-

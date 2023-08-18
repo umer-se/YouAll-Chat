@@ -15,23 +15,21 @@ class AddNewPost: NSObject{
     let db = Firestore.firestore()
     var postID = ""
     var postBody = ""
-    
-    
+     
     func addNewPost(postBody : String){
-
+        // only check once if the same key exist implement it correctly in future
         if !checkAvailabilityForID(id: postID){
             updateFirebase(PostBody: postBody)
         }else{
-
+            
         }
         self.postBody = postBody
-        
     }
-
+    
     func uploadImage(_ attachedimage: [UIImage]){
-
+        
         imageUrls.removeAll()
-       var uploadImageCount = 0
+        var uploadImageCount = 0
         attachedimage.forEach { image in
             let imageName:String = String("\(Date().timeIntervalSince1970).png")
             let storageRef = Storage.storage().reference().child("postImages").child(imageName)
@@ -58,16 +56,16 @@ class AddNewPost: NSObject{
                             self.updateImagesInFireStore()
                             uploadImageCount += 1
                             if uploadImageCount == attachedimage.count{
-                               
+                                
                                 print("reload here")
                             }
                         }
-
+                        
                     }
                 }
                 )}// uploadTask end
         }// attached image loop end
-              
+        
     }
     
     
@@ -76,11 +74,11 @@ class AddNewPost: NSObject{
         return String((0..<length).map{ _ in letters.randomElement()! })
     }
     
-   
+    
     // make this function more effiecint in funture.
     func checkAvailabilityForID(id: String)-> Bool{
-       
-         var flag = false
+        
+        var flag = false
         postID = randomString(length: 10)
         
         let docRef = db.collection(FStore.PostCollection).document(postID)
@@ -94,7 +92,7 @@ class AddNewPost: NSObject{
             {
                 flag = false
                 print("id available")
-               
+                
             }
         }
         return flag
@@ -107,10 +105,10 @@ class AddNewPost: NSObject{
             let postModel = PostModel.init(sender: sender, postBody: PostBody, postImages: imageUrls , time: Date().formatted())
             
             self.db.collection(FStore.PostCollection).document(postID).setData([FStore.Postsender: postModel.sender,
-                                                                         FStore.PostBody: postModel.postBody ?? "",
-                                                                         FStore.dateField: postModel.time,
-                                                                         FStore.postImages: postModel.postImages ?? ""
-                                                                        ]) { error in
+                                                                                FStore.PostBody: postModel.postBody ,
+                                                                                FStore.dateField: postModel.time,
+                                                                                FStore.postImages: postModel.postImages
+                                                                               ]) { error in
                 if let e = error{
                     print("there was an issue saving data to fibase---\(e.localizedDescription)")
                 }else{
@@ -134,7 +132,7 @@ class AddNewPost: NSObject{
                 
                 print("success")
             }
-       
+            
         }
         
     }

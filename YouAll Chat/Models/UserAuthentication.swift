@@ -25,8 +25,8 @@ class UserAuthentication{
     }
     
     func checkLogin() -> Bool{
-        if let user = Auth.auth().currentUser{
-            print(user.phoneNumber!)
+        if Auth.auth().currentUser != nil{
+            //print(user.phoneNumber!)
             return true
         }else{
             
@@ -47,17 +47,6 @@ class UserAuthentication{
             verificationCode: OTP!)
         
         return credential
-//        Auth.auth().signIn(with: credential) { authResult, error in
-//
-//            if let error = error {
-//                print(error)
-//                // handle error properly here
-//            }
-//            //sign in
-//            self.user = authResult?.user
-//            return
-//        }
-        
     }
     
     func getUser()->User{
@@ -65,9 +54,9 @@ class UserAuthentication{
         return self.user!
     }
     
-
+    
     func logOut(){
-
+        
         do {
             try Auth.auth().signOut()
         } catch let signOutError as NSError {

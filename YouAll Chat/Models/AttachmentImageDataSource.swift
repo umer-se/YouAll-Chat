@@ -8,7 +8,7 @@
 protocol AttachmentDataSourceDelegate {
     func didSelectItems()
     func didDeselectItems()
-   
+    
 }
 
 
@@ -37,7 +37,7 @@ extension AttachmentImageDataSource : UICollectionViewDataSource, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.attachmentImageIdentifier, for: indexPath) as! AttachmentCell
         
         cell.setupImageCell(pickedImage: images[indexPath.item])
-       
+        
         
         
         return cell
@@ -57,16 +57,15 @@ extension AttachmentImageDataSource : UICollectionViewDataSource, UICollectionVi
             delegate?.didDeselectItems()
             
         }
-        
     }
     
     
     func deleteItems(at indexPath: [Int]){
         
-     let imagesToRemove = images.remove(elementsAtIndices: indexPath)
-        images.removeAll { savedImage in
+        let imagesToRemove = images.remove(elementsAtIndices: indexPath)
+        images.removeAll { imageInCollection in
             imagesToRemove.contains { selectedImage in
-               savedImage == selectedImage
+                imageInCollection == selectedImage
             }
         }
     }
@@ -88,6 +87,7 @@ extension Array {
         // Shift the elements we want to keep to the left.
         var destIndex = indicesToRemove.first!
         var srcIndex = destIndex + 1
+        
         func shiftLeft(untilIndex index: Int) {
             while srcIndex < index {
                 self[destIndex] = self[srcIndex]
@@ -96,6 +96,7 @@ extension Array {
             }
             srcIndex += 1
         }
+        
         for removeIndex in indicesToRemove[1...] {
             shiftLeft(untilIndex: removeIndex)
         }

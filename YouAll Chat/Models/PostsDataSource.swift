@@ -24,26 +24,28 @@ class PostsDataSource: NSObject{
     
     func getPostsData(){
         
-        db.collection(FStore.PostCollection).addSnapshotListener{ querySnapshot, err  in
-            
-            self.posts = []
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    
-                    let postFields = document.data()
-                    let postModel = PostModel(sender: (postFields[FStore.Postsender] as? String)!,
-                                              postBody: (postFields[FStore.PostBody] as? String)!,
-                                              postImages: (postFields[FStore.postImages] as? [String])!,
-                                              time: (postFields[FStore.dateField] as? String ?? "default value"))
-                    
-                    self.posts.append(postModel)
-                    self.delegate?.updateTable()
-                    
+        db.collection(FStore.PostCollection)
+            .addSnapshotListener{ querySnapshot, err  in
+                
+                self.posts = []
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents{
+                        
+                        let postFields = document.data()
+                        let postModel = PostModel(sender: (postFields[FStore.Postsender] as? String)!,
+                                                  postBody: (postFields[FStore.PostBody] as? String)!,
+                                                  postImages: (postFields[FStore.postImages] as? [String]) ?? [],
+                                                  time: (postFields[FStore.dateField] as? String ?? "default value"))
+                        
+                        self.posts.append(postModel)
+                        
+                    }
                 }
+            
+                self.delegate?.updateTable()
             }
-        }
     }
     
 }

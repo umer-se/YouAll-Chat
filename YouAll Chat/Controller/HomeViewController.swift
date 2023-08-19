@@ -64,6 +64,8 @@ class HomeViewController : UIViewController{
         postsDataSource.delegate = self
         tableView.register(UINib(nibName: "Post" , bundle: nil), forCellReuseIdentifier:K.userFeedPostsIdentifier)
         
+        postObject.delegate = self
+    
         attachmentDataSource.delegate = self
         attachmentCollectionView.dataSource = attachmentDataSource
         attachmentCollectionView.delegate = attachmentDataSource
@@ -208,8 +210,15 @@ extension HomeViewController : PHPickerViewControllerDelegate {
     
     
 }
-//MARK: - Posts DataSourceDelegate
-extension HomeViewController:PostsDatasourceDelegate{
+//MARK: - Posts DataSourceDelegate and addNewPostsDelegate
+extension HomeViewController:PostsDatasourceDelegate,addNewPostDelegate{
+    func refreshData() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+       
+    }
+    
     func updateTable() {
         DispatchQueue.main.async {
             self.tableView.reloadData()

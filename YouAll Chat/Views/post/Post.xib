@@ -134,8 +134,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="collectionView" destination="36f-wl-dT6" id="9Fu-77-Qr5"/>
                 <outlet property="commentButton" destination="TmF-Dq-v5j" id="mby-mw-79P"/>
-                <outlet property="customCollectionView" destination="36f-wl-dT6" id="9Fu-77-Qr5"/>
                 <outlet property="iconImageView" destination="xUs-jd-6Py" id="5qp-kM-k9l"/>
                 <outlet property="name" destination="vpc-SB-YO9" id="h87-JI-vj5"/>
                 <outlet property="postDescription" destination="HWX-ls-Teg" id="me1-kD-kS9"/>

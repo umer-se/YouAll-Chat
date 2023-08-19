@@ -4,6 +4,11 @@
 //
 //  Created by Umer on 15/08/2023.
 //
+protocol addNewPostDelegate{
+    
+    func refreshData()
+}
+
 
 import UIKit
 import Firebase
@@ -11,6 +16,7 @@ import FirebaseStorage
 
 class AddNewPost: NSObject{
     
+    var delegate : addNewPostDelegate?
     var imageUrls: [String] = []
     let db = Firestore.firestore()
     var postID = ""
@@ -57,6 +63,7 @@ class AddNewPost: NSObject{
                             uploadImageCount += 1
                             if uploadImageCount == attachedimage.count{
                                 
+                                self.delegate?.refreshData()
                                 print("reload here")
                             }
                         }

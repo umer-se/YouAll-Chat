@@ -109,7 +109,7 @@ class AddNewPost: NSObject{
         print(imageUrls.count)
         if let sender = Auth.auth().currentUser?.phoneNumber
         {
-            let postModel = PostModel.init(sender: sender, postBody: PostBody, postImages: imageUrls , time: Date().formatted())
+            let postModel = PostModel.init(postID: postID, sender: sender, postBody: PostBody, postImages: imageUrls , time: Date().formatted())
             
             self.db.collection(FStore.PostCollection).document(postID).setData([FStore.Postsender: postModel.sender,
                                                                                 FStore.PostBody: postModel.postBody ,

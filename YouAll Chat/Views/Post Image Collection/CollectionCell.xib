@@ -18,12 +18,22 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tHO-7d-7Uj">
                         <rect key="frame" x="0.0" y="0.0" width="249" height="220"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xY3-sg-IJi" userLabel="overlay">
+                        <rect key="frame" x="0.0" y="0.0" width="249" height="220"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="xY3-sg-IJi" secondAttribute="trailing" id="GVa-GQ-Q4h"/>
+                    <constraint firstItem="xY3-sg-IJi" firstAttribute="top" secondItem="kgS-Mo-JOP" secondAttribute="top" id="GeR-Yd-Bzq"/>
+                    <constraint firstAttribute="bottom" secondItem="xY3-sg-IJi" secondAttribute="bottom" id="KOQ-95-H5b"/>
                     <constraint firstAttribute="bottom" secondItem="tHO-7d-7Uj" secondAttribute="bottom" id="Ld1-Pb-cOO"/>
                     <constraint firstItem="tHO-7d-7Uj" firstAttribute="centerY" secondItem="kgS-Mo-JOP" secondAttribute="centerY" id="QVi-ho-ZN2"/>
                     <constraint firstItem="tHO-7d-7Uj" firstAttribute="centerX" secondItem="kgS-Mo-JOP" secondAttribute="centerX" id="QvL-62-gdW"/>
                     <constraint firstItem="tHO-7d-7Uj" firstAttribute="top" secondItem="kgS-Mo-JOP" secondAttribute="top" id="b7e-BW-eXf"/>
+                    <constraint firstItem="xY3-sg-IJi" firstAttribute="leading" secondItem="kgS-Mo-JOP" secondAttribute="leading" id="hKf-ee-ou4"/>
                     <constraint firstAttribute="trailing" secondItem="tHO-7d-7Uj" secondAttribute="trailing" id="ifi-pa-cAe"/>
                     <constraint firstItem="tHO-7d-7Uj" firstAttribute="leading" secondItem="kgS-Mo-JOP" secondAttribute="leading" id="wMI-P0-7s1"/>
                 </constraints>
@@ -31,6 +41,7 @@
             <size key="customSize" width="249" height="220"/>
             <connections>
                 <outlet property="mainView" destination="tHO-7d-7Uj" id="1qX-Lt-6cf"/>
+                <outlet property="overlay" destination="xY3-sg-IJi" id="baw-vK-uyS"/>
             </connections>
             <point key="canvasLocation" x="113.74045801526717" y="64.08450704225352"/>
         </collectionViewCell>

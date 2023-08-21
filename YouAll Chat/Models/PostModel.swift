@@ -8,6 +8,7 @@
 import UIKit
 struct PostModel {
     
+    let postID: String
     let sender : String
     let postBody: String
     let postImages: [String]

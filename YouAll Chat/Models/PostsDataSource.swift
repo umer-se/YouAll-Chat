@@ -62,7 +62,7 @@ extension PostsDataSource : UITableViewDataSource , UITableViewDelegate{
         
         
         cell.setupRow(sender: postItem.sender,
-                      postBodey: postItem.postBody,
+                      postBody: postItem.postBody,
                       postImages: postItem.postImages.count > 0 ? postItem.postImages : [] ,
                       time: postItem.time)
         

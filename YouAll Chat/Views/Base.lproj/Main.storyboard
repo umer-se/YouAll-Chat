@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sign Up View Controller-->
+        <!--Sign UpVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SignUpViewController" customModule="YouAll_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SignUpVC" customModule="YouAll_Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -119,12 +119,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2807" y="197"/>
+            <point key="canvasLocation" x="2854" y="134"/>
         </scene>
         <!--Item-->
         <scene sceneID="vVC-NC-PNW">
             <objects>
-                <viewController id="ifW-SP-0G1" customClass="HomeViewController" customModule="YouAll_Chat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ifW-SP-0G1" customClass="HomeVC" customModule="YouAll_Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uWP-h0-eJA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -216,6 +216,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kRg-X8-WVv" userLabel="user feed">
                                 <rect key="frame" x="5" y="234" width="365" height="495"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="uWP-h0-eJA" id="efX-gR-V28"/>
+                                    <outlet property="delegate" destination="ifW-SP-0G1" id="rx9-R9-sIT"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ngT-Yj-cau"/>
@@ -266,41 +270,64 @@
                         <outlet property="postTextView" destination="aW6-v7-AX7" id="d2G-PU-ATX"/>
                         <outlet property="tableView" destination="kRg-X8-WVv" id="z27-De-Iuq"/>
                         <segue destination="Wgl-Yp-vqa" kind="show" identifier="detailView" id="INt-96-IzK"/>
-                        <segue destination="cw8-Nb-DVa" kind="show" identifier="comment" id="m9O-yR-y5x"/>
+                        <segue destination="cw8-Nb-DVa" kind="show" identifier="comments" id="m9O-yR-y5x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5E-xc-0HV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3807" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Comments-->
         <scene sceneID="3Uv-dX-MIY">
             <objects>
-                <viewController id="cw8-Nb-DVa" sceneMemberID="viewController">
+                <viewController id="cw8-Nb-DVa" customClass="CommentVC" customModule="YouAll_Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BIO-02-mOE">
                         <rect key="frame" x="0.0" y="0.0" width="310" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dZj-eu-G8s">
-                                <rect key="frame" x="0.0" y="99" width="310" height="630"/>
+                                <rect key="frame" x="0.0" y="175" width="310" height="554"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="new comment box" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1Ps-h7-GSG">
+                                <rect key="frame" x="5" y="94" width="300" height="80"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="93S-Pr-CQR"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="plM-3S-wSm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="plM-3S-wSm" firstAttribute="trailing" secondItem="1Ps-h7-GSG" secondAttribute="trailing" constant="5" id="KCX-KK-LEx"/>
                             <constraint firstItem="dZj-eu-G8s" firstAttribute="leading" secondItem="plM-3S-wSm" secondAttribute="leading" id="MZz-Mg-iz9"/>
                             <constraint firstItem="plM-3S-wSm" firstAttribute="trailing" secondItem="dZj-eu-G8s" secondAttribute="trailing" id="ORa-IB-Xqs"/>
                             <constraint firstItem="plM-3S-wSm" firstAttribute="bottom" secondItem="dZj-eu-G8s" secondAttribute="bottom" id="Vyn-d9-J4P"/>
-                            <constraint firstItem="dZj-eu-G8s" firstAttribute="top" secondItem="plM-3S-wSm" secondAttribute="top" constant="5" id="yD1-8c-gvl"/>
+                            <constraint firstItem="1Ps-h7-GSG" firstAttribute="top" secondItem="plM-3S-wSm" secondAttribute="top" id="We6-YL-DDp"/>
+                            <constraint firstItem="1Ps-h7-GSG" firstAttribute="leading" secondItem="plM-3S-wSm" secondAttribute="leading" constant="5" id="XdX-pz-mvS"/>
+                            <constraint firstItem="dZj-eu-G8s" firstAttribute="top" secondItem="1Ps-h7-GSG" secondAttribute="bottom" constant="1" id="kEw-DO-Hz4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ohm-5Y-vfa"/>
+                    <navigationItem key="navigationItem" title="Comments" id="yi5-0P-IZc">
+                        <barButtonItem key="rightBarButtonItem" image="paperplane.fill" catalog="system" id="pQo-WR-ZIb">
+                            <connections>
+                                <action selector="sendPressed:" destination="cw8-Nb-DVa" id="gCL-jP-oi3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="310" height="812"/>
+                    <connections>
+                        <outlet property="tableView" destination="dZj-eu-G8s" id="q98-5i-sGS"/>
+                        <outlet property="textView" destination="1Ps-h7-GSG" id="Z33-Bm-O8k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWy-jx-9z9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4925" y="-532"/>
+            <point key="canvasLocation" x="4924.8000000000002" y="-532.01970443349751"/>
         </scene>
         <!--Global Chat-->
         <scene sceneID="Pdm-og-zoy">
@@ -317,7 +344,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pdv-k2-yUS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="721" y="1117"/>
+            <point key="canvasLocation" x="327" y="1065"/>
         </scene>
         <!--Conversations-->
         <scene sceneID="bIy-nL-NAF">
@@ -333,7 +360,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1K-J1-ijF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1718" y="1133"/>
+            <point key="canvasLocation" x="1377" y="1065"/>
         </scene>
         <!--Detail View-->
         <scene sceneID="Siq-Dd-dMg">
@@ -386,7 +413,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jhm-RK-y0c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1719" y="197"/>
+            <point key="canvasLocation" x="1759" y="134"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yAq-kI-7qS">
@@ -406,7 +433,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ee2-GP-EoG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="844" y="197"/>
+            <point key="canvasLocation" x="844" y="134"/>
         </scene>
     </scenes>
     <resources>
@@ -425,6 +452,9 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

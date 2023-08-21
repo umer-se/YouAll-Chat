@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class SignUpViewController : UIViewController{
+class SignUpVC : UIViewController{
     
     //MARK: - IBOutlets
     @IBOutlet weak var oTPView: UIView!

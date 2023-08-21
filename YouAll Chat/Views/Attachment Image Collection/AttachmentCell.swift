@@ -13,7 +13,7 @@ class AttachmentCell: UICollectionViewCell{
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var attachmentImage: UIImageView!
     
-    var attachmentImageModel :AttachmentImage?
+   
     let serialQueue = DispatchQueue(label: "imageUpload")
     
     var imageUrl : String = "nil"

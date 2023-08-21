@@ -10,6 +10,9 @@ import UIKit
 
 class CommentCell : UITableViewCell{
     
+    @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var commentBody: UILabel!
     
     
 }

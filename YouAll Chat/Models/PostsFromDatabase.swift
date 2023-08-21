@@ -15,8 +15,13 @@ protocol PostsDatasourceDelegate{
 import UIKit
 import Firebase
 
-class PostsDataSource: NSObject{
+class PostsFromDatabase: NSObject{
+    
     var delegate : PostsDatasourceDelegate?
+
+    var buttonDelegate: postInteractionDelegate?
+    
+   
     var postCount:Int?
     var posts :[PostModel] = []
     
@@ -24,20 +29,22 @@ class PostsDataSource: NSObject{
     
     func getPostsData(){
         
-        db.collection(FStore.PostCollection)
+        db.collection(FS.PostCollection)
             .addSnapshotListener{ querySnapshot, err  in
                 
                 self.posts = []
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
+                    
                     for document in querySnapshot!.documents{
                         
                         let postFields = document.data()
-                        let postModel = PostModel(sender: (postFields[FStore.Postsender] as? String)!,
-                                                  postBody: (postFields[FStore.PostBody] as? String)!,
-                                                  postImages: (postFields[FStore.postImages] as? [String]) ?? [],
-                                                  time: (postFields[FStore.dateField] as? String ?? "default value"))
+                        let postModel = PostModel(postID: (postFields[FS.postID] as? String)!,
+                                                  sender: (postFields[FS.Postsender] as? String)!,
+                                                  postBody: (postFields[FS.PostBody] as? String)!,
+                                                  postImages: (postFields[FS.postImages] as? [String]) ?? [],
+                                                  time: (postFields[FS.dateField] as? String ?? "default value"))
                         
                         self.posts.append(postModel)
                         
@@ -49,19 +56,19 @@ class PostsDataSource: NSObject{
     }
     
 }
-extension PostsDataSource : UITableViewDataSource , UITableViewDelegate{
+extension PostsFromDatabase : UITableViewDataSource , UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.userFeedPostsIdentifier , for: indexPath) as! Post
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.PostIdentifier , for: indexPath) as! Post
         
         let postItem = posts[indexPath.row]
         
-        
-        cell.setupRow(sender: postItem.sender,
+        cell.buttonDelegate = self.buttonDelegate
+        cell.setupRow(postID: postItem.postID, sender: postItem.sender,
                       postBody: postItem.postBody,
                       postImages: postItem.postImages.count > 0 ? postItem.postImages : [] ,
                       time: postItem.time)

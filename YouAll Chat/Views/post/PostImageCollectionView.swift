@@ -4,11 +4,17 @@
 //
 //  Created by Umer on 18/08/2023.
 //
+protocol PostImageDelegate{
+    
+    func imageTapped(index : Int)
+}
+
 
 import UIKit
 
 
 class PostImageCollectionView : NSObject{
+    var delegate : PostImageDelegate?
     var images :[String] = []
     
     
@@ -41,7 +47,8 @@ extension PostImageCollectionView: UICollectionViewDataSource, UICollectionViewD
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        delegate?.imageTapped(index: indexPath.item)
+        
         
     }
 }

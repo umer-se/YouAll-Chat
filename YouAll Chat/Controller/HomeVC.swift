@@ -7,13 +7,8 @@
 
 import UIKit
 import PhotosUI
-import Firebase
 
-
-
-class HomeViewController : UIViewController{
-    
-    
+class HomeVC : UIViewController{
     
     //MARK: - IBOutlets
     @IBOutlet weak var attachmentCollectionView: UICollectionView!
@@ -23,53 +18,47 @@ class HomeViewController : UIViewController{
     
     //MARK: - Variables
     
-    let db = Firestore.firestore()
-    
-    let postsDataSource = PostsDataSource()
-    let attachmentDataSource = AttachmentImageDataSource()
-    var atttachmentImageURLS : [String] = []
-    let postObject = AddNewPost()
-    
-    let group = DispatchGroup()
-    let serialQueue = DispatchQueue(label: "uploadImage.queue")
-    
-    let placeholder = "Whats on your Mind"
-    let userAutentication = UserAuthentication()
-    let postSource = Post()
+    let postsFromDatabase = PostsFromDatabase()
+    let newPost = AddNewPost()
+
+    let attachmentImageDataSource = AttachmentImageDataSource()
     let attachmentSource = AttachmentCell()
     
+    let placeholder = "Whats on your Mind"
+
+    let userAutentication = UserAuthentication()
+    var postID = String()
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
         
+        postsFromDatabase.delegate = self
+        newPost.delegate = self
+        postsFromDatabase.buttonDelegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        postsDataSource.getPostsData()
+        postsFromDatabase.getPostsData()
     }
     
     
     func setupSubviews(){
         deleteAttachmentButton.isHidden = true
-        
+        navigationItem.hidesBackButton = true
         postTextView.text = placeholder
         postTextView.textColor =  UIColor.lightGray
         
-        navigationItem.hidesBackButton = true
-        
-        tableView.dataSource = postsDataSource
-        tableView.delegate = postsDataSource
-        postsDataSource.delegate = self
-        tableView.register(UINib(nibName: "Post" , bundle: nil), forCellReuseIdentifier:K.userFeedPostsIdentifier)
-        
-        postObject.delegate = self
-    
-        attachmentDataSource.delegate = self
-        attachmentCollectionView.dataSource = attachmentDataSource
-        attachmentCollectionView.delegate = attachmentDataSource
-        
+        tableView.dataSource = postsFromDatabase
+        tableView.delegate = postsFromDatabase
+        tableView.register(UINib(nibName: "Post" , bundle: nil), forCellReuseIdentifier:K.PostIdentifier)
+
+       
+        attachmentImageDataSource.delegate = self
+        attachmentCollectionView.dataSource = attachmentImageDataSource
+        attachmentCollectionView.delegate = attachmentImageDataSource
         attachmentCollectionView.register(UINib(nibName: "AttachmentCell", bundle: nil), forCellWithReuseIdentifier: K.attachmentImageIdentifier)
         attachmentCollectionView.allowsMultipleSelection = true
         
@@ -83,7 +72,7 @@ class HomeViewController : UIViewController{
             indexpaths.forEach { index in
                 ToRemoveIndices.append(index.item)
             }
-            attachmentDataSource.deleteItems(at: ToRemoveIndices)
+            attachmentImageDataSource.deleteItems(at: ToRemoveIndices)
         }
         deleteAttachmentButton.isHidden = true
         attachmentCollectionView.reloadData()
@@ -100,11 +89,11 @@ class HomeViewController : UIViewController{
     @IBAction func SendPressed(_ sender: UIButton) {
         let postText = postTextView.text ?? ""
         
-        postObject.addNewPost(postBody: postText)
-        postObject.uploadImage(self.attachmentDataSource.images)
+        newPost.addNewPost(postBody: postText)
+        newPost.uploadImage(self.attachmentImageDataSource.images)
         
         
-        attachmentDataSource.images.removeAll()
+        attachmentImageDataSource.images.removeAll()
         postTextView.text = ""
         attachmentCollectionView.reloadData()
         
@@ -129,7 +118,7 @@ class HomeViewController : UIViewController{
 }
 //MARK: - UITextViewDelegate
 
-extension HomeViewController: UITextViewDelegate{
+extension HomeVC: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView) {
         
         textView.text = ""
@@ -167,7 +156,7 @@ extension HomeViewController: UITextViewDelegate{
 
 //MARK: - AttachmentDataSource Delegate
 
-extension HomeViewController: AttachmentDataSourceDelegate{
+extension HomeVC: AttachmentDataSourceDelegate{
     func didSelectItems() {
         
         deleteAttachmentButton.isHidden = false
@@ -183,7 +172,7 @@ extension HomeViewController: AttachmentDataSourceDelegate{
 //MARK: - PHPickerViewControllerDelegate
 
 
-extension HomeViewController : PHPickerViewControllerDelegate {
+extension HomeVC : PHPickerViewControllerDelegate {
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         
@@ -204,14 +193,17 @@ extension HomeViewController : PHPickerViewControllerDelegate {
     
     func AddToAttachmentImageArray(_ pickedImage: UIImage){
         
-        attachmentDataSource.images.append(pickedImage)
+        attachmentImageDataSource.images.append(pickedImage)
         attachmentCollectionView.reloadData()
     }
     
     
 }
 //MARK: - Posts DataSourceDelegate and addNewPostsDelegate
-extension HomeViewController:PostsDatasourceDelegate,addNewPostDelegate{
+extension HomeVC: PostsDatasourceDelegate,addNewPostDelegate{
+    
+   
+    
     func refreshData() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -226,6 +218,24 @@ extension HomeViewController:PostsDatasourceDelegate,addNewPostDelegate{
         
     }
     
+}
+//MARK: - Post Interaction delegate
+extension HomeVC: postInteractionDelegate{
+
     
+    func likePressed(id postID: String) {
+        print(postID)
+    }
+    func commentPresssed(id postID: String) {
+        //print(postID)
+        self.postID = postID
+        
+        performSegue(withIdentifier: K.commentsScreen, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! CommentVC
+        destinationVC.postID = postID
+    }
     
 }

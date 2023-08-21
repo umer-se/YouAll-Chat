@@ -9,4 +9,5 @@ import UIKit
 struct AttachmentImage{
     let pickedImage: UIImage
     
+    
 }

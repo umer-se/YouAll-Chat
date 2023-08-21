@@ -88,7 +88,7 @@ class AddNewPost: NSObject{
         var flag = false
         postID = randomString(length: 10)
         
-        let docRef = db.collection(FStore.PostCollection).document(postID)
+        let docRef = db.collection(FS.PostCollection).document(postID)
         
         docRef.getDocument { document, error in
             if let document = document, document.exists{
@@ -111,10 +111,11 @@ class AddNewPost: NSObject{
         {
             let postModel = PostModel.init(postID: postID, sender: sender, postBody: PostBody, postImages: imageUrls , time: Date().formatted())
             
-            self.db.collection(FStore.PostCollection).document(postID).setData([FStore.Postsender: postModel.sender,
-                                                                                FStore.PostBody: postModel.postBody ,
-                                                                                FStore.dateField: postModel.time,
-                                                                                FStore.postImages: postModel.postImages
+            self.db.collection(FS.PostCollection).document(postID).setData([FS.postID : postModel.postID,
+                                                                                FS.Postsender: postModel.sender,
+                                                                                FS.PostBody: postModel.postBody ,
+                                                                                FS.dateField: postModel.time,
+                                                                                FS.postImages: postModel.postImages
                                                                                ]) { error in
                 if let e = error{
                     print("there was an issue saving data to fibase---\(e.localizedDescription)")
@@ -126,10 +127,10 @@ class AddNewPost: NSObject{
     }
     
     func updateImagesInFireStore(){
-        let reference = db.collection(FStore.PostCollection).document(postID)
+        let reference = db.collection(FS.PostCollection).document(postID)
         
         reference.updateData([
-            FStore.postImages: imageUrls
+            FS.postImages: imageUrls
         ]){error in
             
             if let error = error{

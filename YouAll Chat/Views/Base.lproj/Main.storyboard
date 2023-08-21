@@ -266,7 +266,7 @@
                         <outlet property="postTextView" destination="aW6-v7-AX7" id="d2G-PU-ATX"/>
                         <outlet property="tableView" destination="kRg-X8-WVv" id="z27-De-Iuq"/>
                         <segue destination="Wgl-Yp-vqa" kind="show" identifier="detailView" id="INt-96-IzK"/>
-                        <segue destination="cw8-Nb-DVa" kind="show" id="m9O-yR-y5x"/>
+                        <segue destination="cw8-Nb-DVa" kind="show" identifier="comment" id="m9O-yR-y5x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5E-xc-0HV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -394,13 +394,14 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="uEJ-1c-lFs" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="arP-It-ify">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="ISc-wS-K61" kind="relationship" relationship="viewControllers" id="aI3-aW-JLn"/>
                         <segue destination="N2C-6a-3IQ" kind="relationship" relationship="viewControllers" id="esi-oF-o0R"/>
                         <segue destination="XnO-Ts-GGg" kind="relationship" relationship="viewControllers" id="MJo-2l-yRw"/>
-                        <segue destination="ISc-wS-K61" kind="relationship" relationship="viewControllers" id="aI3-aW-JLn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ee2-GP-EoG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fc4-ot-1Hu">
-                        <rect key="frame" x="0.0" y="0.0" width="360" height="140"/>
+                        <rect key="frame" x="0.0" y="0.0" width="365" height="119"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xUs-jd-6Py" userLabel="user image">
                                 <rect key="frame" x="20" y="20" width="50" height="50"/>
@@ -38,7 +38,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWX-ls-Teg" userLabel="description">
-                                <rect key="frame" x="20" y="75" width="320" height="64"/>
+                                <rect key="frame" x="20" y="75" width="325" height="43"/>
                                 <string key="text">this is a decription field for a post it will show it there is any text in the user field if there is no description in post decription it will be hidden</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -59,11 +59,11 @@
                             <constraint firstAttribute="trailing" secondItem="HWX-ls-Teg" secondAttribute="trailing" constant="20" id="rCi-Nv-nWN"/>
                         </constraints>
                     </view>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Le5-yx-YMA">
-                        <rect key="frame" x="20" y="145" width="320" height="240"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Le5-yx-YMA">
+                        <rect key="frame" x="20" y="124" width="325" height="261"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" contentMode="scaleAspectFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="36f-wl-dT6">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                <rect key="frame" x="0.0" y="0.0" width="325" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="mey-F6-uIu"/>
@@ -80,14 +80,10 @@
                                 </connections>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="k8P-Jl-LMz" userLabel="interaction buttons">
-                                <rect key="frame" x="0.0" y="210" width="320" height="30"/>
+                                <rect key="frame" x="0.0" y="220" width="325" height="41"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbO-2c-xih">
-                                        <rect key="frame" x="0.0" y="0.0" width="140" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Ffj-Hz-JY5"/>
-                                            <constraint firstAttribute="width" constant="140" id="Gph-xb-iuO"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="142.66666666666666" height="41"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup" catalog="system" title="Like" imagePadding="5" cornerStyle="capsule">
@@ -101,11 +97,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmF-Dq-v5j">
-                                        <rect key="frame" x="180" y="0.0" width="140" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="140" id="U6A-3l-tGU"/>
-                                            <constraint firstAttribute="height" constant="30" id="eKR-d3-UGg"/>
-                                        </constraints>
+                                        <rect key="frame" x="182.66666666666663" y="0.0" width="142.33333333333337" height="41"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="bubble.right" catalog="system" title="Comment" imagePadding="5" cornerStyle="capsule">

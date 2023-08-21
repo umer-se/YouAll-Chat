@@ -47,7 +47,7 @@ class Post : UITableViewCell {
         collectionView.register(UINib(nibName: "CollectionLastCell", bundle: nil), forCellWithReuseIdentifier: collectionLastCell.identifier)
         
         collectionView.dataSource = postImageCollection
-        collectionView.dataSource = postImageCollection
+        collectionView.delegate = postImageCollection
         
         let whiteView = UIView(frame: bounds)
         whiteView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -62,7 +62,11 @@ class Post : UITableViewCell {
         postImageCollection.images = postImages
         let url = URL(string: "https://www.freeimages.com/photo/holding-a-dot-com-iii-1411477")
         self.iconImageView.kf.setImage(with: url)
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+
+        }
+       
     }
     
     
@@ -149,14 +153,11 @@ class Post : UITableViewCell {
 //        }
 //    }
 //}
-////MARK: - CollectionView Delegate
+//MARK: - CollectionView Delegate
+
+//extension Post:UICollectionViewDelegateFlowLayout{
 //
-//extension Post: UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
 //
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print(indexPath.row)
-//
-//    }
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //
 //        return getImageSize(indexPath)
@@ -165,29 +166,30 @@ class Post : UITableViewCell {
 //
 //    //everything is hardcoded at the moment change it in future
 //    func getImageSize(_ indexPath:IndexPath)->CGSize{
-//        let height = customCollectionView.frame.height
-//        let width = customCollectionView.frame.width
+//        let height = collectionView.frame.height
+//        let width = collectionView.frame.width
 //
 //        switch images.count{
 //        case 1:
+//            print("here")
 //            return CGSize(width: width , height: height)
 //
 //        case 2:
-//            return CGSize(width:(width / 2)-1 , height: height)
+//            return CGSize(width:(width / 2)-10 , height: height)
 //
 //        case 3:
 //            if indexPath.row == 2{
-//                return CGSize(width:width , height: (height / 2)-1)
+//                return CGSize(width:width , height: (height / 2)-10)
 //            }
-//            return CGSize(width:(width / 2)-1 , height: (height / 2)-1)
+//            return CGSize(width:(width / 2)-10 , height: (height / 2)-10)
 //
 //        case 4...:
-//            return CGSize(width:(width / 2)-1 , height: (height / 2)-1)
+//            return CGSize(width:(width / 2)-10 , height: (height / 2)-10)
 //
 //        default:
-//            customCollectionView.bounds.size.height = 1.0
+//            collectionView.bounds.size.height = 1.0
 //            return CGSize(width:0, height: 0)
 //        }
 //    }
 //}
-//
+

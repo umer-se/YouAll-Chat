@@ -13,7 +13,7 @@ class PostImageCollectionView : NSObject{
     
     
 }
-extension PostImageCollectionView: UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
+extension PostImageCollectionView: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if images.count < 4{
             if images.isEmpty{
@@ -61,44 +61,46 @@ extension PostImageCollectionView: UICollectionViewDataSource, UICollectionViewD
         }
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.row)
         
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return getImageSize(indexPath,collection: collectionView)
-    }
     
     
-    //everything is hardcoded at the moment change it in future
-    func getImageSize(_ indexPath:IndexPath ,collection: UICollectionView)->CGSize{
-        let height = collection.frame.height
-        let width = collection.frame.width
-        
-        switch images.count{
-        case 1:
-            return CGSize(width: width , height: height)
-            
-        case 2:
-            return CGSize(width:(width / 2)-1 , height: height)
-            
-        case 3:
-            if indexPath.row == 2{
-                return CGSize(width:width , height: (height / 2)-1)
-            }
-            return CGSize(width:(width / 2)-1 , height: (height / 2)-1)
-            
-        case 4...:
-            return CGSize(width:(width / 2)-1 , height: (height / 2)-1)
-            
-        default:
-            collection.bounds.size.height = 1.0
-            return CGSize(width:0, height: 0)
-        }
-        
-        
-        
-    }
     
+}
+extension PostImageCollectionView : UICollectionViewDelegateFlowLayout{
+     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+         return getImageSize(indexPath,collectionView )
+     }
+
+
+     //everything is hardcoded at the moment change it in future
+    func getImageSize(_ indexPath:IndexPath,_ collectionView: UICollectionView)->CGSize{
+         let height = collectionView.frame.height
+         let width = collectionView.frame.width
+
+         switch images.count{
+         case 1:
+             return CGSize(width: width , height: height)
+
+         case 2:
+             return CGSize(width:(width / 2)-1 , height: height)
+
+         case 3:
+             if indexPath.row == 2{
+                 return CGSize(width:width , height: (height / 2)-1)
+             }
+             return CGSize(width:(width / 2)-1 , height: (height / 2)-1)
+
+         case 4...:
+             return CGSize(width:(width / 2)-1 , height: (height / 2)-1)
+
+         default:
+             collectionView.bounds.size.height = 1.0
+             return CGSize(width:0, height: 0)
+         }
+     }
 }

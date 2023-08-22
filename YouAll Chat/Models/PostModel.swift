@@ -13,9 +13,7 @@ struct PostModel {
     let postBody: String
     let postImages: [String]
     let time: String
-   // let likes : Int
-   // let comments : [Comments]
-    
+  
 }
 
 

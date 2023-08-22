@@ -4,7 +4,7 @@
 //
 //  Created by Umer on 17/08/2023.
 //
-protocol PostsDatasourceDelegate{
+protocol UpdateTableDelegate{
     
     func updateTable()
 }
@@ -17,7 +17,7 @@ import Firebase
 
 class PostsFromDatabase: NSObject{
     
-    var delegate : PostsDatasourceDelegate?
+    var delegate : UpdateTableDelegate?
 
     var buttonDelegate: postInteractionDelegate?
     
@@ -29,7 +29,7 @@ class PostsFromDatabase: NSObject{
     
     func getPostsData(){
         
-        db.collection(FS.PostCollection)
+        db.collection(POST.PostCollection)
             .addSnapshotListener{ querySnapshot, err  in
                 
                 self.posts = []
@@ -40,11 +40,12 @@ class PostsFromDatabase: NSObject{
                     for document in querySnapshot!.documents{
                         
                         let postFields = document.data()
-                        let postModel = PostModel(postID: (postFields[FS.postID] as? String)!,
-                                                  sender: (postFields[FS.Postsender] as? String)!,
-                                                  postBody: (postFields[FS.PostBody] as? String)!,
-                                                  postImages: (postFields[FS.postImages] as? [String]) ?? [],
-                                                  time: (postFields[FS.dateField] as? String ?? "default value"))
+                        let postModel = PostModel(postID: (postFields[POST.postID] as? String)!,
+                                                  sender: (postFields[POST.Postsender] as? String)!,
+                                                  postBody: (postFields[POST.PostBody] as? String)!,
+                                                  postImages: (postFields[POST.postImages] as? [String]) ?? [],
+                                                  time: (postFields[POST.dateField] as? String ?? "default value")
+                                                )
                         
                         self.posts.append(postModel)
                         

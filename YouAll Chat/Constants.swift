@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct FS{
+struct POST{
     static let PostCollection = "Posts"
     static let Postsender = "sender"
     static let PostBody = "postbody"
@@ -17,6 +17,15 @@ struct FS{
     static let commentId = "commentID"
     static let commentBody = "commentBody"
     static let commentSender = "commentSender"
+    static let commentDate = "date"
+    static let commentTimeStamp = "commentTimeStamp"
+}
+
+struct CONVERSATION{
+    
+    static let Sender = "Sender"
+    static let Contacts = "Contacts"
+    
 }
 
 struct K {
@@ -24,4 +33,5 @@ struct K {
     static let PostIdentifier = "postIdentifier"
     static let attachmentImageIdentifier = "attachmentCell"
     static let commentsScreen = "comments"
+    static let commentCell = "commentCell"
 }

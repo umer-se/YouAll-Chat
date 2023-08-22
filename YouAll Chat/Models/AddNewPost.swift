@@ -88,7 +88,7 @@ class AddNewPost: NSObject{
         var flag = false
         postID = randomString(length: 10)
         
-        let docRef = db.collection(FS.PostCollection).document(postID)
+        let docRef = db.collection(POST.PostCollection).document(postID)
         
         docRef.getDocument { document, error in
             if let document = document, document.exists{
@@ -106,16 +106,17 @@ class AddNewPost: NSObject{
     }
     
     func updateFirebase(PostBody : String ){
-        print(imageUrls.count)
+       // print(imageUrls.count)
         if let sender = Auth.auth().currentUser?.phoneNumber
         {
             let postModel = PostModel.init(postID: postID, sender: sender, postBody: PostBody, postImages: imageUrls , time: Date().formatted())
             
-            self.db.collection(FS.PostCollection).document(postID).setData([FS.postID : postModel.postID,
-                                                                                FS.Postsender: postModel.sender,
-                                                                                FS.PostBody: postModel.postBody ,
-                                                                                FS.dateField: postModel.time,
-                                                                                FS.postImages: postModel.postImages
+            self.db.collection(POST.PostCollection).document(postID).setData([POST.postID : postModel.postID,
+                                                                                POST.Postsender: postModel.sender,
+                                                                                POST.PostBody: postModel.postBody ,
+                                                                                POST.dateField: postModel.time,
+                                                                                POST.postImages: postModel.postImages
+                                                                                
                                                                                ]) { error in
                 if let e = error{
                     print("there was an issue saving data to fibase---\(e.localizedDescription)")
@@ -127,10 +128,10 @@ class AddNewPost: NSObject{
     }
     
     func updateImagesInFireStore(){
-        let reference = db.collection(FS.PostCollection).document(postID)
+        let reference = db.collection(POST.PostCollection).document(postID)
         
         reference.updateData([
-            FS.postImages: imageUrls
+            POST.postImages: imageUrls
         ]){error in
             
             if let error = error{

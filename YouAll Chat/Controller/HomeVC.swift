@@ -200,7 +200,7 @@ extension HomeVC : PHPickerViewControllerDelegate {
     
 }
 //MARK: - Posts DataSourceDelegate and addNewPostsDelegate
-extension HomeVC: PostsDatasourceDelegate,addNewPostDelegate{
+extension HomeVC: UpdateTableDelegate,addNewPostDelegate{
     
    
     

@@ -11,5 +11,8 @@ struct CommentModel{
     
     let sender: String
     let commentBody : String
+    let date: String
+    let timeStamp : Double
+    
    // let userImage : String
 }

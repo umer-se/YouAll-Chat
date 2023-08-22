@@ -28,6 +28,7 @@
 		045339582A937E9D0060C0E5 /* AddComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045339572A937E9D0060C0E5 /* AddComments.swift */; };
 		0453395A2A937EDD0060C0E5 /* LoadComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045339592A937EDD0060C0E5 /* LoadComments.swift */; };
 		0453395C2A937F310060C0E5 /* ComentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0453395B2A937F310060C0E5 /* ComentModel.swift */; };
+		0453395F2A9488E90060C0E5 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0453395E2A9488E90060C0E5 /* IQKeyboardManagerSwift */; };
 		045E8CE92A84CE43004A1051 /* AttachmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045E8CE82A84CE43004A1051 /* AttachmentCell.swift */; };
 		04A21D692A8626DC004F87F1 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 04A21D682A8626DC004F87F1 /* FirebaseAnalytics */; };
 		04A21D6B2A8626DC004F87F1 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 04A21D6A2A8626DC004F87F1 /* FirebaseAppCheck */; };
@@ -88,6 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04A21D6B2A8626DC004F87F1 /* FirebaseAppCheck in Frameworks */,
+				0453395F2A9488E90060C0E5 /* IQKeyboardManagerSwift in Frameworks */,
 				04A21D6D2A8626DC004F87F1 /* FirebaseAuth in Frameworks */,
 				044D351D2A823A2F004A1565 /* Kingfisher in Frameworks */,
 				A3A9FB40D879CD46A41F6B4C /* Pods_YouAll_Chat.framework in Frameworks */,
@@ -252,6 +254,7 @@
 				04A21D6C2A8626DC004F87F1 /* FirebaseAuth */,
 				04A21D6E2A8626DC004F87F1 /* FirebaseFirestore */,
 				04A21D702A8626DC004F87F1 /* FirebaseStorage */,
+				0453395E2A9488E90060C0E5 /* IQKeyboardManagerSwift */,
 			);
 			productName = "YouAll Chat";
 			productReference = 044D34D92A7E242A004A1565 /* YouAll Chat.app */;
@@ -284,6 +287,7 @@
 			packageReferences = (
 				044D351B2A823A2F004A1565 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				04A21D672A8626DC004F87F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0453395D2A9488E80060C0E5 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 044D34DA2A7E242A004A1565 /* Products */;
 			projectDirPath = "";
@@ -592,6 +596,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		0453395D2A9488E80060C0E5 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		04A21D672A8626DC004F87F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -607,6 +619,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 044D351B2A823A2F004A1565 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		0453395E2A9488E90060C0E5 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0453395D2A9488E80060C0E5 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 		04A21D682A8626DC004F87F1 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

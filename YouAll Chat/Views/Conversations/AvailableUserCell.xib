@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AvailableUserCell" rowHeight="56" id="rnV-K6-Gcc" customClass="AvailableUserCell" customModule="YouAll_Chat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="359" height="56"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rnV-K6-Gcc" id="Gar-GT-Grk">
+                <rect key="frame" x="0.0" y="0.0" width="359" height="56"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="UOW-H8-hKd">
+                        <rect key="frame" x="0.0" y="0.0" width="359" height="56"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Hai-ba-7YD">
+                                <rect key="frame" x="0.0" y="4.9999999999999982" width="50" height="46.666666666666671"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="7ov-uC-7Qi"/>
+                                    <constraint firstAttribute="height" constant="50" id="ogQ-iG-Piq"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEc-kZ-86N">
+                                <rect key="frame" x="65" y="18" width="294" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="UOW-H8-hKd" secondAttribute="trailing" id="Hzb-H2-NMh"/>
+                    <constraint firstItem="UOW-H8-hKd" firstAttribute="top" secondItem="Gar-GT-Grk" secondAttribute="top" id="Nqn-Pk-dd4"/>
+                    <constraint firstAttribute="bottom" secondItem="UOW-H8-hKd" secondAttribute="bottom" id="QIK-3Z-mgn"/>
+                    <constraint firstItem="UOW-H8-hKd" firstAttribute="leading" secondItem="Gar-GT-Grk" secondAttribute="leading" id="uLx-HE-fEm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="userImage" destination="Hai-ba-7YD" id="suu-mZ-rzv"/>
+                <outlet property="userName" destination="pEc-kZ-86N" id="1CC-0D-21C"/>
+            </connections>
+            <point key="canvasLocation" x="-22.137404580152669" y="58.450704225352112"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+    </resources>
+</document>

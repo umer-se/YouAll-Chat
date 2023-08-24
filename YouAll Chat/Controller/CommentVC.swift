@@ -31,16 +31,10 @@ class CommentVC : UIViewController{
         commentsRef.commnetDelegate = self
         
     }
-    
-    
-    
-    @IBAction func sendPressed(_ sender: Any) {
+    @IBAction func sendPressed(_ sender: UIButton) {
         if let text = textView.text{
             self.newCommentRef.addComment(comment: text,id: postID)
         }
-        
-        
-        
     }
     
     
@@ -49,8 +43,12 @@ extension CommentVC: UpdateTableDelegate{
     func updateTable() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            if self.commentsRef.comments.isEmpty == false{
+                
             let indexPath = IndexPath(row: self.commentsRef.comments.count - 1, section: 0)
-            self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+            }
+            
         }
        
     }

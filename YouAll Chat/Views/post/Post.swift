@@ -73,12 +73,7 @@ class Post : UITableViewCell {
         }
     }
     
-    
-//        override func prepareForReuse() {
-//            self.images.removeAll()
-//
-//        }
-//
+
     //MARK: - IBActions
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
@@ -100,9 +95,6 @@ class Post : UITableViewCell {
     @IBAction func commentButtonPressed(_ sender: UIButton) {
         
         buttonDelegate?.commentPresssed(id: postID)
-        
-        sender.isSelected = !sender.isSelected
-        
     }    
 }
 

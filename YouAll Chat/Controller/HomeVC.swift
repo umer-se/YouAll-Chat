@@ -33,6 +33,8 @@ class HomeVC : UIViewController{
         super.viewDidLoad()
         setupSubviews()
         
+        tabBarController?.tabBar.isHidden = false
+        navigationItem.hidesBackButton = true
         postsFromDatabase.delegate = self
         newPost.delegate = self
         postsFromDatabase.buttonDelegate = self
@@ -47,7 +49,7 @@ class HomeVC : UIViewController{
     
     func setupSubviews(){
         deleteAttachmentButton.isHidden = true
-        navigationItem.hidesBackButton = true
+        
         postTextView.text = placeholder
         postTextView.textColor =  UIColor.lightGray
         

@@ -21,12 +21,36 @@ struct POST{
     static let commentTimeStamp = "commentTimeStamp"
 }
 
-struct CONVERSATION{
+struct Conv{
     
     static let Sender = "Sender"
     static let Contacts = "Contacts"
+    static let conversationID = "conversationID"
+    static let message = "message"
+    static let messageTime = "messageTime"
+    static let Date = "Date"
+    static let reciever = "reciever"
+    static let conversationCollection = "Conversations"
+    static let lastMessage = "LastMessage"
+    static let conversationWith = "ConversationWith"
+    
     
 }
+
+struct User{
+    static let UserColletion = "Users"
+    static let Name = "Name"
+    static let PhoneNo  = "Phone NO"
+    static let Email  = "Email"
+    static let id = "UID"
+    static let recieverID = "RecieverID"
+}
+struct Message{
+    static let sendBy = "Sendby"
+    static let message = "MessageBody"
+    
+}
+
 
 struct K {
     
@@ -34,4 +58,9 @@ struct K {
     static let attachmentImageIdentifier = "attachmentCell"
     static let commentsScreen = "comments"
     static let commentCell = "commentCell"
+    static let conversationCell = "ConversationCell"
+    static let availableUserCell = "AvailableUserCell"
+    static let chatView = "ChatView"
+    static let MessageCell = "MessageCell"
+     
 }

@@ -5,11 +5,16 @@
 //  Created by Umer on 05/08/2023.
 //
 
+
+
+
 import Foundation
 import Firebase
 
 class UserAuthentication{
-    var user : User?
+    
+    var userAuthDelegate: UserAuthenticationDelegate?
+    let db = Firestore.firestore()
     
     func verifyUser(_ phoneNo:String){
         
@@ -17,7 +22,6 @@ class UserAuthentication{
             .verifyPhoneNumber(phoneNo, uiDelegate: nil) { verificationID, error in
                 if error != nil {
                     fatalError("phone no cannot be verified...check proper formate and handle this for nil phone no")
-                    
                 }
                 
                 UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
@@ -25,18 +29,15 @@ class UserAuthentication{
     }
     
     func checkLogin() -> Bool{
-        if Auth.auth().currentUser != nil{
-            //print(user.phoneNumber!)
+       if Auth.auth().currentUser != nil {
             return true
         }else{
-            
             return false
         }
     }
     
-    func logIn(_ OTP:String? = "")-> AuthCredential{
-        
-        
+    func GetAuthCredential(_ OTP:String? = "")-> AuthCredential{
+
         guard let verificationID = UserDefaults.standard.string(forKey: "authVerificationID") else {
             fatalError("failed to get verification id from userDefaults")
         }
@@ -49,11 +50,21 @@ class UserAuthentication{
         return credential
     }
     
-    func getUser()->User{
+    func login(OTP:String){
         
-        return self.user!
+        let credential = self.GetAuthCredential(OTP)
+        Auth.auth().signIn(with: credential) { authResult, error in
+            
+            if let error = error {
+                // handle error properly here
+                print(error)
+            }else{
+                //sign in
+                self.saveUser(firebaseUser: Auth.auth().currentUser!)
+                self.userAuthDelegate?.logInView()
+            }
+        }
     }
-    
     
     func logOut(){
         
@@ -64,4 +75,16 @@ class UserAuthentication{
         }
     }
     
+    func saveUser(firebaseUser : FirebaseAuth.User){
+        
+        let userName = firebaseUser.displayName ?? "no name"
+        let phoneNo = firebaseUser.phoneNumber ?? "no Phone number"
+        let email = firebaseUser.email ?? " no email"
+        let uid = firebaseUser.uid
+        db.collection(User.UserColletion).document(uid).setData([User.id : uid ,
+                                                                 User.Name:userName,
+                                                                 User.PhoneNo : phoneNo,
+                                                                 User.Email: email], merge: true)
+        
+    }
 }

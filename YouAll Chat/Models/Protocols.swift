@@ -14,3 +14,17 @@ protocol postInteractionDelegate{
     func commentPresssed(id postID :String )
 }
 
+protocol UserAuthenticationDelegate{
+    
+    func logInView()
+    
+}
+
+protocol SwitchScreenDelegate{
+    
+    func switchScreen()
+}
+protocol AddConversationDelegate{
+    
+    func addConversation(_ selectedUserID :String)
+}

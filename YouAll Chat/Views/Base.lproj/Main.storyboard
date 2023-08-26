@@ -350,7 +350,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="rlL-Jz-2qv">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="edL-Xw-t0z">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="8YF-xS-MJO">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="8YF-xS-MJO">
                                 <rect key="frame" x="16" y="0.0" width="75" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -461,17 +461,54 @@
             </objects>
             <point key="canvasLocation" x="4924.8000000000002" y="-532.01970443349751"/>
         </scene>
-        <!--View Controller-->
+        <!--Global MessageVC-->
         <scene sceneID="Pdm-og-zoy">
             <objects>
-                <viewController id="N2C-6a-3IQ" sceneMemberID="viewController">
+                <viewController id="N2C-6a-3IQ" customClass="GlobalMessageVC" customModule="YouAll_Chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cFn-Ph-Bj4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ken-sp-J2q">
+                                <rect key="frame" x="10" y="94" width="355" height="580.66666666666663"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZMr-YT-Oh5">
+                                <rect key="frame" x="10" y="684.66666666666663" width="355" height="34.333333333333371"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="type Your Message Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v1s-0R-nji">
+                                        <rect key="frame" x="0.0" y="0.0" width="294.33333333333331" height="34.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4YD-lu-Tbu">
+                                        <rect key="frame" x="304.33333333333331" y="0.0" width="50.666666666666686" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="paperplane.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="sendPressed:" destination="N2C-6a-3IQ" eventType="touchUpInside" id="tqj-cI-fGZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="AEf-6P-SeK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AEf-6P-SeK" firstAttribute="bottom" secondItem="ZMr-YT-Oh5" secondAttribute="bottom" constant="10" id="1Me-iC-kaY"/>
+                            <constraint firstItem="AEf-6P-SeK" firstAttribute="trailing" secondItem="ZMr-YT-Oh5" secondAttribute="trailing" constant="10" id="1Ra-5D-maM"/>
+                            <constraint firstItem="Ken-sp-J2q" firstAttribute="leading" secondItem="AEf-6P-SeK" secondAttribute="leading" constant="10" id="J4v-u3-nyO"/>
+                            <constraint firstItem="AEf-6P-SeK" firstAttribute="trailing" secondItem="Ken-sp-J2q" secondAttribute="trailing" constant="10" id="Qfr-l1-kqN"/>
+                            <constraint firstItem="ZMr-YT-Oh5" firstAttribute="top" secondItem="Ken-sp-J2q" secondAttribute="bottom" constant="10" id="Zxc-Hb-Nma"/>
+                            <constraint firstItem="ZMr-YT-Oh5" firstAttribute="leading" secondItem="AEf-6P-SeK" secondAttribute="leading" constant="10" id="uIZ-5t-hkT"/>
+                            <constraint firstItem="Ken-sp-J2q" firstAttribute="top" secondItem="AEf-6P-SeK" secondAttribute="top" id="xLF-jK-U27"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zjk-n1-W2i"/>
+                    <connections>
+                        <outlet property="messageTextField" destination="v1s-0R-nji" id="UPx-Hk-k6x"/>
+                        <outlet property="tableView" destination="Ken-sp-J2q" id="sy6-Tn-VNB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pdv-k2-yUS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -32,7 +32,8 @@ class LoadComments: NSObject{
                     let commentModel = CommentModel(sender: comments[P.commentSender] as? String ?? "",
                                                         commentBody: comments[P.commentBody] as? String ?? "",
                                                     date: comments[P.commentDate] as? String ?? "",
-                                                    timeStamp: comments[P.commentTimeStamp] as? Double ?? 0.0 )
+                                                    timeStamp: comments[P.commentTimeStamp] as? Double ?? 0.0,
+                                                    userImage: comments[P.commenterProfileImage] as? String ?? "" )
                         
                         
                         self.comments.append(commentModel)
@@ -63,7 +64,7 @@ extension LoadComments:UITableViewDataSource,UITableViewDelegate{
         
         let commentItem = comments[indexPath.row]
         
-        cell.setupRow(sender: commentItem.sender, comment: commentItem.commentBody)
+        cell.setupRow(comment: commentItem)
         
         
         return cell

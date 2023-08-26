@@ -44,7 +44,8 @@ class LoadConversations: NSObject{
                         if self.conversationID.contains(conversation[Conversation.ID] as! String){
                             
                             
-                            let conversationModel = ConversationModel(recieverID: conversation[Conversation.RecieverID] as! String,
+                            let conversationModel = ConversationModel(time: conversation[Conversation.time] as? String ?? "no time",
+                                                                      recieverID: conversation[Conversation.RecieverID] as! String,
                                                                       createrID: conversation[Conversation.CreaterID] as! String,
                                                                       recieverName: conversation[Conversation.recieverName] as? String ?? "No Name",
                                                                       CreaterName: conversation[Conversation.createrName] as? String ?? "No Name",
@@ -78,9 +79,9 @@ extension LoadConversations: UITableViewDataSource,UITableViewDelegate{
         
         if currentUser?.uid == conversationItem.createrID{
             
-            cell.setupRow(recieverName: conversationItem.recieverName, profileImage: conversationItem.recieverPicture)
+            cell.setupRow(recieverName: conversationItem.recieverName, profileImage: conversationItem.recieverPicture,time: conversationItem.time)
         }else{
-            cell.setupRow(recieverName: conversationItem.CreaterName, profileImage: conversationItem.createrPicture)
+            cell.setupRow(recieverName: conversationItem.CreaterName, profileImage: conversationItem.createrPicture , time: conversationItem.time)
         }
         return cell
     }

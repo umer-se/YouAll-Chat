@@ -19,6 +19,7 @@ struct P{
     static let commentSender = "commentSender"
     static let commentDate = "date"
     static let commentTimeStamp = "commentTimeStamp"
+    static let commenterProfileImage = "Sender ProfileImage"
     static let postSenderImage = "profilePicture" 
 }
 
@@ -26,7 +27,6 @@ struct Conversation{
     static let recieverPicture = "recieverPicture"
     static let createrPicture = "createrPicture"
     static let Collection = "Conversations"
-    static let lastMessage = "LastMessage"
     static let RecieverID = "ConversationWith"
     static let CreaterID = "ConversationStarter"
     static let ID = "ConversationID"
@@ -34,6 +34,8 @@ struct Conversation{
     static let recieverName = "RecieverName"
     static let createrName = "CreaterName"
     static let Participants = "ConversationParticipations"
+    static let time = "last Message Time"
+    static let lastMessage = "LastMessage"
 }
 
 struct FirebaseUser{
@@ -71,4 +73,9 @@ struct K {
     static let chatView = "ChatView"
     static let MessageCell = "MessageCell"
      
+}
+struct Global{
+    static let collection = "Global"
+
+    
 }

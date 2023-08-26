@@ -7,8 +7,8 @@
 
 import Foundation
 struct ConversationModel{
-   // let lastMessage: String
-   // let time : Date
+   //let lastMessage: String
+    let time : String
     let recieverID :String
     let createrID: String
     let recieverName:String

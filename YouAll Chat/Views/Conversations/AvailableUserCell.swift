@@ -24,8 +24,21 @@ class AvailableUserCell: UITableViewCell{
         self.phoneNo.text = phoneNo
         
     }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        makeRound(image: userImage)
+    }
     
     override func prepareForReuse() {
         userName.text = ""
+    }
+    
+    func makeRound(image:UIImageView){
+        
+        image.layer.borderWidth = 1
+            image.layer.masksToBounds = false
+            image.layer.borderColor = UIColor.black.cgColor
+            image.layer.cornerRadius = image.frame.height/2
+            image.clipsToBounds = true
     }
 }

@@ -16,15 +16,31 @@ class CommentCell : UITableViewCell{
     
    // var delegate: UpdateTableDelegate?
     
-    func setupRow(sender: String,comment:String){
+    override  func awakeFromNib() {
+        super.awakeFromNib()
         
-        userName.text = sender
-        commentBody.text = comment
+        makeRound(image: profilePic)
+    }
+    
+    func setupRow(comment: CommentModel){
+        
+        userName.text = comment.sender
+        commentBody.text = comment.commentBody
+        profilePic.kf.setImage(with: URL(string: comment.userImage))
         
     }
     override func prepareForReuse() {
         userName.text = ""
         commentBody.text = ""
+    }
+    
+    func makeRound(image:UIImageView){
+        
+        image.layer.borderWidth = 1
+            image.layer.masksToBounds = false
+            image.layer.borderColor = UIColor.black.cgColor
+            image.layer.cornerRadius = image.frame.height/2
+            image.clipsToBounds = true
     }
 }
 

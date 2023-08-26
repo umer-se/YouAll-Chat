@@ -45,8 +45,11 @@ class LoadMessages:NSObject{
                     }
                     DispatchQueue.main.async {
                         self.messageDelegate?.updateTable()
-                        let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-                        self.messageDelegate?.scrollToNewMessage(indexPath: indexPath)
+                        if self.messages.count > 1{
+                            let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                            self.messageDelegate?.scrollToNewMessage(indexPath: indexPath)
+                        }
+                        
                     }
                     
                 }

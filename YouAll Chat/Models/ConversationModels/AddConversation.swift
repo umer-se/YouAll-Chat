@@ -10,10 +10,10 @@ import Firebase
 
 
 class AddConversation: NSObject{
- 
+    
     let db = Firestore.firestore()
     var addConversationDelegate : UpdateTableDelegate?
-   
+    
     
     func checkIfConversationExists(_ selectedUser : UserModel) {
         var flag = true
@@ -50,9 +50,14 @@ class AddConversation: NSObject{
     }
     func addConversation(currentUser: User,selectedUser : UserModel) {
         
-        
-        
-        let conversationModel = ConversationModel(recieverID: selectedUser.uid, createrID: currentUser.uid, recieverName: selectedUser.Name ?? "No Name", CreaterName: currentUser.displayName ?? "No Name" , conversationID: "", createrPicture: currentUser.photoURL!.absoluteString, recieverPicture: selectedUser.profilePicture)
+        let conversationModel = ConversationModel(time: Date().formatted(),
+                                                  recieverID: selectedUser.uid,
+                                                  createrID: currentUser.uid,
+                                                  recieverName: selectedUser.Name ?? "No Name",
+                                                  CreaterName: currentUser.displayName ?? "No Name" ,
+                                                  conversationID: "",
+                                                  createrPicture: currentUser.photoURL!.absoluteString,
+                                                  recieverPicture: selectedUser.profilePicture)
         
         let dbRef = db.collection(Conversation.Collection).document()
         
@@ -78,9 +83,15 @@ class AddConversation: NSObject{
         }
     }
     
+    
     func setConversationPaticipant(conversationID:String, selectedUser:String, currentUser:String){
-        
-        db.collection(Conversation.Participants).document().setData([Conversation.ID:conversationID,Conversation.user: selectedUser]){ error in
+        saveParticipant(conversationID, selectedUser)
+        saveParticipant(conversationID, currentUser)
+    }
+    fileprivate func saveParticipant(_ conversationID: String, _ selectedUser: String) {
+        db.collection(Conversation.Participants).document().setData([Conversation.ID:conversationID,
+                                                                     Conversation.user: selectedUser])
+        { error in
             if let e = error{
                 print("there was an issue saving data to fibase---\(e.localizedDescription)")
             }else{
@@ -91,21 +102,8 @@ class AddConversation: NSObject{
             }
             
         }
-        
-        
-        db.collection("ConversationParticipations").document().setData([Conversation.ID:conversationID,Conversation.user: currentUser]){ error in
-            if let e = error{
-                print("there was an issue saving data to fibase---\(e.localizedDescription)")
-            }else{
-                print("conversation participation for current user is added")
-                DispatchQueue.main.async {
-                    self.addConversationDelegate?.updateTable()
-                }
-            }
-            
-        }
-        
     }
+    
     
     
     

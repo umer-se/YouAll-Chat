@@ -36,7 +36,6 @@ struct Conversation{
     static let Participants = "ConversationParticipations"
 }
 
-
 struct FirebaseUser{
     static let UserColletion = "Users"
     static let Name = "Name"
@@ -47,8 +46,16 @@ struct FirebaseUser{
     static let profilePicture = "ProfilePicture"
 }
 struct Message{
-    static let sendBy = "Sendby"
-    static let message = "MessageBody"
+    static let collection = "Messages"
+    static let sender = "Sender Name"
+    static let recipient = "Recipient Name "
+    static let senderID = "SenderID"
+    static let recipientId = "RecipientID"
+    static let date = "Time"
+    static let content = "Content"
+    static let senderPicture = "SenderProfilePicture"
+    static let recipientPicture = "RecipientProfilePicture"
+    static let timeStamp = "TimeStamp"
     
 }
 

@@ -14,7 +14,7 @@ class LoadConversations: NSObject{
     var conversationDelegate : UpdateTableDelegate?
     var switchScreenDelegate: SwitchScreenDelegate?
     
-    var selectedConversqationID :String = ""
+    var selectedConversqation :ConversationModel?
     
     let db = Firestore.firestore()
     var conversations: [ConversationModel] = []
@@ -42,8 +42,8 @@ class LoadConversations: NSObject{
                         let conversation = document.data()
                         
                         if self.conversationID.contains(conversation[Conversation.ID] as! String){
-
-                          
+                            
+                            
                             let conversationModel = ConversationModel(recieverID: conversation[Conversation.RecieverID] as! String,
                                                                       createrID: conversation[Conversation.CreaterID] as! String,
                                                                       recieverName: conversation[Conversation.recieverName] as? String ?? "No Name",
@@ -86,8 +86,8 @@ extension LoadConversations: UITableViewDataSource,UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let conversationID = conversations[indexPath.row].recieverID
-        selectedConversqationID = conversationID
+        let conversation = conversations[indexPath.row]
+        selectedConversqation = conversation
         
         DispatchQueue.main.async {
             
@@ -107,6 +107,7 @@ extension LoadConversations: UITableViewDataSource,UITableViewDelegate{
                 print("during getConversationID \(String(describing: error?.localizedDescription))")
             }
             else{
+                self.conversationID = []
                 for document in QuerySnapshot!.documents{
                     
                     let conversation = document.data()
@@ -122,11 +123,6 @@ extension LoadConversations: UITableViewDataSource,UITableViewDelegate{
         }
         
     }
-    
-    
-    
-    
-    
     
 }
 

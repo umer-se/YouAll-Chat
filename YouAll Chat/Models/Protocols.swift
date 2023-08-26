@@ -28,3 +28,9 @@ protocol AddConversationDelegate{
     
     func addConversation(_ selectedUserID :String)
 }
+
+protocol loadMessageDelegate{
+    func updateTable()
+    func scrollToNewMessage(indexPath : IndexPath)
+    
+}

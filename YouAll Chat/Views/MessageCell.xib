@@ -93,7 +93,9 @@
                 <outlet property="messageBody" destination="ZJD-76-gVH" id="hfs-pD-fbm"/>
                 <outlet property="messageBubble" destination="sMC-uN-G7j" id="NPK-e1-1Bf"/>
                 <outlet property="otherView" destination="coD-p1-fJT" id="kcv-81-Kyn"/>
+                <outlet property="recipientName" destination="8WO-EQ-86i" id="BaP-sL-8or"/>
                 <outlet property="selfView" destination="X7L-Ng-ear" id="NBm-Xq-4aU"/>
+                <outlet property="senderName" destination="YWn-dv-WgW" id="4hr-tU-Xpp"/>
             </connections>
             <point key="canvasLocation" x="-27.480916030534349" y="59.154929577464792"/>
         </tableViewCell>

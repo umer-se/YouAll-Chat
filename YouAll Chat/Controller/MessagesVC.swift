@@ -15,7 +15,7 @@ class MessagesVC : UIViewController{
     let addMessageRef = AddMessage()
     let loadMessageRef = LoadMessages()
     
-    var conversationID :String = ""
+    var conversation : ConversationModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,20 +25,23 @@ class MessagesVC : UIViewController{
         tableView.dataSource = loadMessageRef
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: K.MessageCell)
         
-        loadMessageRef.getallmessages(conversationID: conversationID)
+        loadMessageRef.getallmessages(conversation: conversation!)
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
-        print(conversationID)
+        // print(conversationID)
         if let message = messageTextField.text {
+            addMessageRef.addMessage(messageBody: message , conversationModel: conversation!)
             
-            addMessageRef.addMessage(messageBody: message, conversationID)
         }
-        messageTextField.text = ""
    }
     
 }
-extension MessagesVC: UpdateTableDelegate{
+extension MessagesVC: loadMessageDelegate{
+    func scrollToNewMessage(indexPath: IndexPath) {
+        self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+    }
+    
     func updateTable() {
         tableView.reloadData()
     }

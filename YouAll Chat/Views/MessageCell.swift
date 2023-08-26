@@ -10,11 +10,10 @@ import UIKit
 class messageCell : UITableViewCell{
     
     @IBOutlet weak var otherView: UIStackView!
-    
     @IBOutlet weak var selfView: UIStackView!
-    
+    @IBOutlet weak var senderName: UILabel!
+    @IBOutlet weak var recipientName: UILabel!
     @IBOutlet weak var messageBubble: UIView!
-    
     @IBOutlet weak var messageBody: UILabel!
     
     
@@ -25,15 +24,17 @@ class messageCell : UITableViewCell{
     }
     
     
-    func setupRow(sender:String,messageBody: String){
+    func setupRow(sender:String,message: MessageModel ){
         
         if sender == "self"{
             otherView.isHidden = true
-        }else {
+            senderName.text = message.sender
+        }else{
             selfView.isHidden = true
+            recipientName.text = message.recipient
         }
         
-        self.messageBody.text = messageBody
+        self.messageBody.text = message.content
         
     }
     

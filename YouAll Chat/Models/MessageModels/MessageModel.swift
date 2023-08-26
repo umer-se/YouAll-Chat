@@ -10,5 +10,12 @@ import Foundation
 struct MessageModel{
     
     let sender :String
-    let messageBody :String
+    let recipient :String
+    let content :String
+    let senderID :String
+    let recipientID :String
+    let time :String
+    let timeStamp: Double
+    let senderpicture :String
+    let recipientPicture :String
 }

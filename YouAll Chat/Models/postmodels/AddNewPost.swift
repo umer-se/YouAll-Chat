@@ -106,28 +106,28 @@ class AddNewPost: NSObject{
     }
     
     func updateFirebase(PostBody : String, sender:String, photoUrl:String ){
-    
-            
-            let postModel = PostModel.init(postID: postID, sender: sender, postBody: PostBody, postImages: imageUrls , time: Date().formatted(), profileImage: photoUrl )
-            
-            self.db.collection(P.PostCollection).document(postID).setData([P.postID : postModel.postID,
-                                                                              P.Postsender: postModel.sender,
-                                                                              P.PostBody: postModel.postBody ,
-                                                                              P.dateField: postModel.time,
-                                                                              P.postImages: postModel.postImages,
-                                                                              P.postSenderImage: postModel.profileImage
-                                                                             ]) { error in
-                if let e = error{
-                    print("there was an issue saving data to fibase---\(e.localizedDescription)")
-                }else{
-                    print("saved data")
-                }
+        
+        
+        let postModel = PostModel.init(postID: postID, sender: sender, postBody: PostBody, postImages: imageUrls , time: Date().formatted(), profileImage: photoUrl )
+        
+        self.db.collection(P.PostCollection).document(postID).setData([P.postID : postModel.postID,
+                                                                       P.Postsender: postModel.sender,
+                                                                       P.PostBody: postModel.postBody ,
+                                                                       P.dateField: postModel.time,
+                                                                       P.postImages: postModel.postImages,
+                                                                       P.postSenderImage: postModel.profileImage
+                                                                      ]) { error in
+            if let e = error{
+                print("there was an issue saving data to fibase---\(e.localizedDescription)")
+            }else{
+                print("saved data")
             }
+        }
         
     }
     
     func updateImagesInFireStore(){
-            
+        
         let reference = db.collection(P.PostCollection).document(postID)
         
         reference.updateData([
@@ -155,7 +155,7 @@ class AddNewPost: NSObject{
             }
         }
     }
-   
+    
 }
 
 

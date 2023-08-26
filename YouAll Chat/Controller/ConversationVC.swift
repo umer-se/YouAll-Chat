@@ -15,6 +15,7 @@ class ConversationVC: UIViewController{
     
     let conversationRef = LoadConversations()
     let availableUsers = AvailableUsers()
+    let addConversations = AddConversation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,7 @@ class ConversationVC: UIViewController{
         tableView.dataSource = conversationRef
         tableView.delegate = conversationRef
         
-        availableUsers.addConversationDelegate = self
+        addConversations.addConversationDelegate = self
         
         tableView.register(UINib(nibName: "ConversationCell", bundle: nil), forCellReuseIdentifier: K.conversationCell)
       
@@ -52,7 +53,7 @@ extension ConversationVC : UpdateTableDelegate,SwitchScreenDelegate{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ChatView"{
             let destinationVC = segue.destination as! MessagesVC
-            destinationVC.conversationID = conversationRef.selectedConversqationID
+            destinationVC.conversation = conversationRef.selectedConversqation
         }
         
     }

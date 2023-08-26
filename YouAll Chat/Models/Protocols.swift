@@ -16,7 +16,7 @@ protocol postInteractionDelegate{
 
 protocol UserAuthenticationDelegate{
     
-    func logInView()
+    func logInView(newUser :Bool)
     
 }
 

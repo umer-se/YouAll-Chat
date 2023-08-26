@@ -14,7 +14,8 @@ class ConversationVC: UIViewController{
     
     
     let conversationRef = LoadConversations()
-    let addConversationRef = AddConversation()
+    let availableUsers = AvailableUsers()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      
@@ -23,12 +24,14 @@ class ConversationVC: UIViewController{
         tableView.dataSource = conversationRef
         tableView.delegate = conversationRef
         
-        tableView.register(UINib(nibName: "ConversationCell", bundle: nil), forCellReuseIdentifier: K.conversationCell)
+        availableUsers.addConversationDelegate = self
         
+        tableView.register(UINib(nibName: "ConversationCell", bundle: nil), forCellReuseIdentifier: K.conversationCell)
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        conversationRef.getData()
+        conversationRef.getConversations()
     }
     
     @IBAction func AddUserPressed(_ sender: UIButton) {

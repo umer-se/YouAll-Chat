@@ -13,6 +13,7 @@ struct PostModel {
     let postBody: String
     let postImages: [String]
     let time: String
+    let profileImage: String
   
 }
 

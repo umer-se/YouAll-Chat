@@ -15,33 +15,42 @@
                 <rect key="frame" x="0.0" y="0.0" width="359" height="56"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="UOW-H8-hKd">
-                        <rect key="frame" x="0.0" y="0.0" width="359" height="56"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Hai-ba-7YD">
+                        <rect key="frame" x="5" y="7" width="50" height="46.666666666666671"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="VKz-xi-Xzf"/>
+                            <constraint firstAttribute="height" constant="50" id="Va5-tp-pXI"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bkF-xf-Pqj">
+                        <rect key="frame" x="65" y="5" width="87.666666666666686" height="33.666666666666664"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Hai-ba-7YD">
-                                <rect key="frame" x="0.0" y="4.9999999999999982" width="50" height="46.666666666666671"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="7ov-uC-7Qi"/>
-                                    <constraint firstAttribute="height" constant="50" id="ogQ-iG-Piq"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEc-kZ-86N">
-                                <rect key="frame" x="65" y="18" width="294" height="20.333333333333329"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEc-kZ-86N">
+                                <rect key="frame" x="0.0" y="0.0" width="87.666666666666671" height="20.333333333333332"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PhoneNO" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6GK-kC-gfA" userLabel="phoneNo">
+                                <rect key="frame" x="0.0" y="20.333333333333332" width="87.666666666666671" height="13.333333333333332"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="UOW-H8-hKd" secondAttribute="trailing" id="Hzb-H2-NMh"/>
-                    <constraint firstItem="UOW-H8-hKd" firstAttribute="top" secondItem="Gar-GT-Grk" secondAttribute="top" id="Nqn-Pk-dd4"/>
-                    <constraint firstAttribute="bottom" secondItem="UOW-H8-hKd" secondAttribute="bottom" id="QIK-3Z-mgn"/>
-                    <constraint firstItem="UOW-H8-hKd" firstAttribute="leading" secondItem="Gar-GT-Grk" secondAttribute="leading" id="uLx-HE-fEm"/>
+                    <constraint firstItem="Hai-ba-7YD" firstAttribute="top" secondItem="Gar-GT-Grk" secondAttribute="top" constant="5" id="0EF-DS-OH3"/>
+                    <constraint firstAttribute="bottom" secondItem="Hai-ba-7YD" secondAttribute="bottom" constant="5" id="2OH-Lz-abI"/>
+                    <constraint firstItem="bkF-xf-Pqj" firstAttribute="top" secondItem="Gar-GT-Grk" secondAttribute="top" constant="5" id="8ag-jc-nwh"/>
+                    <constraint firstAttribute="bottom" secondItem="bkF-xf-Pqj" secondAttribute="bottom" constant="5" id="huT-Zr-GUY"/>
+                    <constraint firstItem="Hai-ba-7YD" firstAttribute="leading" secondItem="Gar-GT-Grk" secondAttribute="leading" constant="5" id="jhQ-7q-jed"/>
+                    <constraint firstItem="bkF-xf-Pqj" firstAttribute="leading" secondItem="Hai-ba-7YD" secondAttribute="trailing" constant="10" id="nsy-zL-SsS"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="phoneNo" destination="6GK-kC-gfA" id="l3F-Mm-FdP"/>
                 <outlet property="userImage" destination="Hai-ba-7YD" id="suu-mZ-rzv"/>
                 <outlet property="userName" destination="pEc-kZ-86N" id="1CC-0D-21C"/>
             </connections>

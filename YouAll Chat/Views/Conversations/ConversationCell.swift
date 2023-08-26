@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ConversationCell: UITableViewCell{
     
@@ -18,15 +19,9 @@ class ConversationCell: UITableViewCell{
     @IBOutlet weak var time: UILabel!
     
     
-//    func setupCell(reciever :String,lastMessage :String, time: Date ){
-//
-//        recieverName.text = reciever
-//        recieverLastMessage.text = lastMessage
-//        recieverProfileImage.image = UIImage(systemName: "person.fill")
-//        self.time.text = time.formatted()
-//    }
-    func setupRow(conversationWith:String){
-        recieverName.text = conversationWith
+    func setupRow(recieverName:String, profileImage: String ){
+        self.recieverName.text = recieverName
+        self.recieverProfileImage.kf.setImage(with: URL(string: profileImage))
         
     }
     

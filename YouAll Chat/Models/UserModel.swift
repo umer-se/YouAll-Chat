@@ -13,5 +13,5 @@ struct UserModel{
     let PhoneNo : String?
     let Email : String?
     let uid : String
-    //let profilePicture : String
+    let profilePicture : String
 }

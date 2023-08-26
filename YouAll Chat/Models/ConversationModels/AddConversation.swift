@@ -2,17 +2,13 @@
 //  AddConversation.swift
 //  YouAll Chat
 //
-//  Created by Umer on 23/08/2023.
+//  Created by Umer on 24/08/2023.
 //
 
 import UIKit
-import Firebase
 
-class AddConversation: NSObject {
-    let db = Firestore.firestore()
+class AddConversation: NSObject{
     
-
+    
     
 }
-    
-

@@ -18,7 +18,7 @@ class HomeVC : UIViewController{
     
     //MARK: - Variables
     
-    let postsFromDatabase = PostsFromDatabase()
+    let postsFromDatabase = loadPosts()
     let newPost = AddNewPost()
 
     let attachmentImageDataSource = AttachmentImageDataSource()
@@ -38,6 +38,7 @@ class HomeVC : UIViewController{
         postsFromDatabase.delegate = self
         newPost.delegate = self
         postsFromDatabase.buttonDelegate = self
+
         
     }
     
@@ -87,11 +88,19 @@ class HomeVC : UIViewController{
         }
     }
     
+    @IBAction func menuPressed(_ sender: UIButton) {
+       print("pressed")
+        
+        performSegue(withIdentifier: "userInfo", sender: self)
+        
+    }
     
     @IBAction func SendPressed(_ sender: UIButton) {
-        let postText = postTextView.text ?? ""
+        if let postText = postTextView.text {
+            
+            newPost.addNewPost(postBody: postText)
+        }
         
-        newPost.addNewPost(postBody: postText)
         newPost.uploadImage(self.attachmentImageDataSource.images)
         
         
@@ -236,8 +245,11 @@ extension HomeVC: postInteractionDelegate{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! CommentVC
-        destinationVC.postID = postID
+        if segue.identifier == "comments" {
+            let destinationVC = segue.destination as! CommentVC
+            destinationVC.postID = postID
+        }
+      
     }
     
 }

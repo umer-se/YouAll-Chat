@@ -15,7 +15,7 @@ class Post : UITableViewCell {
     
     @IBOutlet weak var time: UILabel!
     
-    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var profileImageView: UIImageView!
     
     @IBOutlet weak var postDescription: UILabel!
     
@@ -53,15 +53,17 @@ class Post : UITableViewCell {
         let whiteView = UIView(frame: bounds)
         whiteView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.selectedBackgroundView = whiteView
+        
+        makeRound(image: profileImageView)
     }
     
-    func setupRow(postID: String, sender :String ,postBody: String , postImages: [String],time: String ){
+    func setupRow(postID: String, sender :String ,postBody: String , postImages: [String],time: String,profileimage:String ){
         self.name.text = sender
         self.postDescription.text = postBody
         self.postID = postID
         self.time.text = time
         postImageCollection.images = postImages
-        iconImageView.image = UIImage(systemName: "person.crop.circle.fill")
+        profileImageView.kf.setImage(with: URL(string: profileimage))
         
         if postImages.isEmpty{
             collectionView.isHidden = true
@@ -71,6 +73,15 @@ class Post : UITableViewCell {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
+    }
+    
+    func makeRound(image:UIImageView){
+        
+        image.layer.borderWidth = 1
+            image.layer.masksToBounds = false
+            image.layer.borderColor = UIColor.black.cgColor
+            image.layer.cornerRadius = image.frame.height/2
+            image.clipsToBounds = true
     }
     
 

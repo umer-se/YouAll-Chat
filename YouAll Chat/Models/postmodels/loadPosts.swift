@@ -15,7 +15,7 @@ protocol UpdateTableDelegate{
 import UIKit
 import Firebase
 
-class PostsFromDatabase: NSObject{
+class loadPosts: NSObject{
     
     var delegate : UpdateTableDelegate?
 
@@ -29,7 +29,7 @@ class PostsFromDatabase: NSObject{
     
     func getPostsData(){
         
-        db.collection(POST.PostCollection)
+        db.collection(P.PostCollection)
             .addSnapshotListener{ querySnapshot, err  in
                 
                 self.posts = []
@@ -40,11 +40,11 @@ class PostsFromDatabase: NSObject{
                     for document in querySnapshot!.documents{
                         
                         let postFields = document.data()
-                        let postModel = PostModel(postID: (postFields[POST.postID] as? String)!,
-                                                  sender: (postFields[POST.Postsender] as? String)!,
-                                                  postBody: (postFields[POST.PostBody] as? String)!,
-                                                  postImages: (postFields[POST.postImages] as? [String]) ?? [],
-                                                  time: (postFields[POST.dateField] as? String ?? "default value")
+                        let postModel = PostModel(postID: (postFields[P.postID] as? String)!,
+                                                  sender: (postFields[P.Postsender] as? String)!,
+                                                  postBody: (postFields[P.PostBody] as? String)!,
+                                                  postImages: (postFields[P.postImages] as? [String]) ?? [],
+                                                  time: (postFields[P.dateField] as? String ?? "default value"), profileImage: (postFields[P.postSenderImage] as? String) ?? ""
                                                 )
                         
                         self.posts.append(postModel)
@@ -57,7 +57,7 @@ class PostsFromDatabase: NSObject{
     }
     
 }
-extension PostsFromDatabase : UITableViewDataSource , UITableViewDelegate{
+extension loadPosts : UITableViewDataSource , UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
@@ -72,7 +72,7 @@ extension PostsFromDatabase : UITableViewDataSource , UITableViewDelegate{
         cell.setupRow(postID: postItem.postID, sender: postItem.sender,
                       postBody: postItem.postBody,
                       postImages: postItem.postImages.count > 0 ? postItem.postImages : [] ,
-                      time: postItem.time)
+                      time: postItem.time, profileimage: postItem.profileImage)
         
                return cell;
     }

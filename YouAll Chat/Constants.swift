@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct POST{
+struct P{
     static let PostCollection = "Posts"
     static let Postsender = "sender"
     static let PostBody = "postbody"
@@ -19,31 +19,32 @@ struct POST{
     static let commentSender = "commentSender"
     static let commentDate = "date"
     static let commentTimeStamp = "commentTimeStamp"
+    static let postSenderImage = "profilePicture" 
 }
 
-struct Conv{
-    
-    static let Sender = "Sender"
-    static let Contacts = "Contacts"
-    static let conversationID = "conversationID"
-    static let message = "message"
-    static let messageTime = "messageTime"
-    static let Date = "Date"
-    static let reciever = "reciever"
-    static let conversationCollection = "Conversations"
+struct Conversation{
+    static let recieverPicture = "recieverPicture"
+    static let createrPicture = "createrPicture"
+    static let Collection = "Conversations"
     static let lastMessage = "LastMessage"
-    static let conversationWith = "ConversationWith"
-    
-    
+    static let RecieverID = "ConversationWith"
+    static let CreaterID = "ConversationStarter"
+    static let ID = "ConversationID"
+    static let user = "User"
+    static let recieverName = "RecieverName"
+    static let createrName = "CreaterName"
+    static let Participants = "ConversationParticipations"
 }
 
-struct User{
+
+struct FirebaseUser{
     static let UserColletion = "Users"
     static let Name = "Name"
     static let PhoneNo  = "Phone NO"
     static let Email  = "Email"
     static let id = "UID"
     static let recieverID = "RecieverID"
+    static let profilePicture = "ProfilePicture"
 }
 struct Message{
     static let sendBy = "Sendby"

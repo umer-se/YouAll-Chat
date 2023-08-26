@@ -29,15 +29,15 @@ class UserAuthentication{
     }
     
     func checkLogin() -> Bool{
-       if Auth.auth().currentUser != nil {
+        if Auth.auth().currentUser != nil {
             return true
         }else{
             return false
         }
     }
     
-    func GetAuthCredential(_ OTP:String? = "")-> AuthCredential{
-
+    func GetAuthCredential(_ OTP:String? = "123456")-> AuthCredential{
+        
         guard let verificationID = UserDefaults.standard.string(forKey: "authVerificationID") else {
             fatalError("failed to get verification id from userDefaults")
         }
@@ -60,8 +60,15 @@ class UserAuthentication{
                 print(error)
             }else{
                 //sign in
-                self.saveUser(firebaseUser: Auth.auth().currentUser!)
-                self.userAuthDelegate?.logInView()
+                
+                
+                if let isNewUser: Bool = authResult?.additionalUserInfo?.isNewUser {
+                    if isNewUser {
+                        self.userAuthDelegate?.logInView(newUser: true)
+                    }else{
+                        self.userAuthDelegate?.logInView(newUser: false)
+                    }
+                }
             }
         }
     }
@@ -75,16 +82,48 @@ class UserAuthentication{
         }
     }
     
-    func saveUser(firebaseUser : FirebaseAuth.User){
+    func saveUser(){
         
-        let userName = firebaseUser.displayName ?? "no name"
-        let phoneNo = firebaseUser.phoneNumber ?? "no Phone number"
-        let email = firebaseUser.email ?? " no email"
-        let uid = firebaseUser.uid
-        db.collection(User.UserColletion).document(uid).setData([User.id : uid ,
-                                                                 User.Name:userName,
-                                                                 User.PhoneNo : phoneNo,
-                                                                 User.Email: email], merge: true)
+        if let firebaseUser = Auth.auth().currentUser{
+            let userName = firebaseUser.displayName ?? "no name"
+            let phoneNo = firebaseUser.phoneNumber ?? "no Phone number"
+            let email = firebaseUser.email ?? " no email"
+            let uid = firebaseUser.uid
+            db.collection(FirebaseUser.UserColletion).document(uid).setData([FirebaseUser.id : uid ,
+                                                                             FirebaseUser.Name:userName,
+                                                                     FirebaseUser.PhoneNo : phoneNo,
+                                                                     FirebaseUser.Email: email], merge: true)
+            
+        }
         
     }
+    func saveUserProfilePicture(){
+        if let firebaseUser = Auth.auth().currentUser{
+            let profilePicture = firebaseUser.photoURL
+            let uid = firebaseUser.uid
+            db.collection(FirebaseUser.UserColletion).document(uid).setData([
+                FirebaseUser.profilePicture:profilePicture!.absoluteString], merge: true)
+        }
+    }
+    
+    func reauthenticateUser(credential :AuthCredential){
+        
+        let user = Auth.auth().currentUser
+        // get user to login again here
+        
+        //let credential = GetAuthCredential()
+        
+        
+        user?.reauthenticate(with: credential,completion: { authResult, error in
+            
+            if let error = error {
+                print("error during reauthentication\(error.localizedDescription)")
+            } else {
+                // User re-authenticated.
+            }
+            
+        })
+        
+    }
+    
 }

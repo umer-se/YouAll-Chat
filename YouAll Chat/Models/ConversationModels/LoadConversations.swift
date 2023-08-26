@@ -18,55 +18,51 @@ class LoadConversations: NSObject{
     
     let db = Firestore.firestore()
     var conversations: [ConversationModel] = []
+    var conversationID: [String] = []
     
     func getData(){
         
-        let userID = (Auth.auth().currentUser?.uid)!
-        db.collection(Conv.conversationCollection).addSnapshotListener { QuerySnapshot, error in
+        db.collection(Conversation.Collection).addSnapshotListener { QuerySnapshot, error in
             if error != nil{
                 print("error in geting data about conversations")
                 
             }else{
                 if QuerySnapshot?.count == 0{
                     print("no item to display in converstions")
+                    self.conversations = []
                     DispatchQueue.main.async {
                         self.conversationDelegate?.updateTable()
                     }
-                         
+                    
                 }else{
                     
                     self.conversations = []
-                    
                     for document in QuerySnapshot!.documents{
                         
                         let conversation = document.data()
-//                        let conversationModel = ConversationModel(
-//                                        connversationID: conversation[Conv.conversationID] as? String ?? "",
-//                                        reciever:conversation[Conv.reciever] as? String ?? "no value", ConversationWith: String,
-//                                        lastMessage: conversation[Conv.lastMessage] as? String ?? "no value",
-//                                        time: conversation[Conv.Date] as? Date ?? Date())
-//                       
-//
-                        let conversationModel = ConversationModel(ConversationWith: conversation[Conv.conversationWith] as? String ?? "no value")
                         
-                        self.conversations.append(conversationModel)
-                        
-                    }
+                        if self.conversationID.contains(conversation[Conversation.ID] as! String){
+
+                          
+                            let conversationModel = ConversationModel(recieverID: conversation[Conversation.RecieverID] as! String,
+                                                                      createrID: conversation[Conversation.CreaterID] as! String,
+                                                                      recieverName: conversation[Conversation.recieverName] as? String ?? "No Name",
+                                                                      CreaterName: conversation[Conversation.createrName] as? String ?? "No Name",
+                                                                      conversationID: conversation[Conversation.ID] as! String,
+                                                                      createrPicture: conversation[Conversation.createrPicture] as? String ?? " ",
+                                                                      recieverPicture: conversation[Conversation.recieverPicture] as? String ?? " ")
+                            
+                            self.conversations.append(conversationModel)
+                        }
+                    }// end loop
                     
                     DispatchQueue.main.async {
                         self.conversationDelegate?.updateTable()
                     }
-                        
-                    
                 }
             }
-            
-            
         }
-        
-        
     }
-    
 }
 extension LoadConversations: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,27 +72,57 @@ extension LoadConversations: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.conversationCell, for: indexPath) as! ConversationCell
         
+        let currentUser = Auth.auth().currentUser
+        
         let conversationItem = conversations[indexPath.row]
         
-//        cell.setupCell(reciever: conversationItem.reciever, lastMessage: conversationItem.lastMessage, time: conversationItem.time)
-        cell.setupRow(conversationWith: conversationItem.ConversationWith)
+        if currentUser?.uid == conversationItem.createrID{
+            
+            cell.setupRow(recieverName: conversationItem.recieverName, profileImage: conversationItem.recieverPicture)
+        }else{
+            cell.setupRow(recieverName: conversationItem.CreaterName, profileImage: conversationItem.createrPicture)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let conversationID = conversations[indexPath.row].ConversationWith
+        let conversationID = conversations[indexPath.row].recieverID
         selectedConversqationID = conversationID
-       
+        
         DispatchQueue.main.async {
             
             self.switchScreenDelegate?.switchScreen()
             
         }
-       
-        
         
         
     }
+    
+    // get user specific conversations here
+    
+    func getConversations(){
+        let userID = (Auth.auth().currentUser?.uid)!
+        db.collection(Conversation.Participants).getDocuments { QuerySnapshot, error in
+            if error != nil {
+                print("during getConversationID \(String(describing: error?.localizedDescription))")
+            }
+            else{
+                for document in QuerySnapshot!.documents{
+                    
+                    let conversation = document.data()
+                    if let user = conversation[Conversation.user] {
+                        if user as! String == userID{
+                            self.conversationID.append(conversation[Conversation.ID] as! String)
+                        }
+                    }
+                }//end loop
+                self.getData()
+                
+            }
+        }
+        
+    }
+    
     
     
     

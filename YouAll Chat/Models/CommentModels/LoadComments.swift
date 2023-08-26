@@ -29,10 +29,10 @@ class LoadComments: NSObject{
                 for document in querySnapshot!.documentChanges{
                     
                     let comments =  document.document.data()
-                    let commentModel = CommentModel(sender: comments[POST.commentSender] as? String ?? "",
-                                                        commentBody: comments[POST.commentBody] as? String ?? "",
-                                                    date: comments[POST.commentDate] as? String ?? "",
-                                                    timeStamp: comments[POST.commentTimeStamp] as? Double ?? 0.0 )
+                    let commentModel = CommentModel(sender: comments[P.commentSender] as? String ?? "",
+                                                        commentBody: comments[P.commentBody] as? String ?? "",
+                                                    date: comments[P.commentDate] as? String ?? "",
+                                                    timeStamp: comments[P.commentTimeStamp] as? Double ?? 0.0 )
                         
                         
                         self.comments.append(commentModel)

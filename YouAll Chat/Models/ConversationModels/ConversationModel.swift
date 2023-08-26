@@ -9,5 +9,12 @@ import Foundation
 struct ConversationModel{
    // let lastMessage: String
    // let time : Date
-    let ConversationWith :String
+    let recieverID :String
+    let createrID: String
+    let recieverName:String
+    let CreaterName:String
+    let conversationID: String
+    let createrPicture: String
+    let recieverPicture : String
+
 }

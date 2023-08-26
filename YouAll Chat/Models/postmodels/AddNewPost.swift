@@ -21,11 +21,11 @@ class AddNewPost: NSObject{
     let db = Firestore.firestore()
     var postID = ""
     var postBody = ""
-     
+    
     func addNewPost(postBody : String){
         // only check once if the same key exist implement it correctly in future
         if !checkAvailabilityForID(id: postID){
-            updateFirebase(PostBody: postBody)
+            AddPost(PostBody: postBody)
         }else{
             
         }
@@ -88,7 +88,7 @@ class AddNewPost: NSObject{
         var flag = false
         postID = randomString(length: 10)
         
-        let docRef = db.collection(POST.PostCollection).document(postID)
+        let docRef = db.collection(P.PostCollection).document(postID)
         
         docRef.getDocument { document, error in
             if let document = document, document.exists{
@@ -105,33 +105,34 @@ class AddNewPost: NSObject{
         return flag
     }
     
-    func updateFirebase(PostBody : String ){
-       // print(imageUrls.count)
-        if let sender = Auth.auth().currentUser?.phoneNumber
-        {
-            let postModel = PostModel.init(postID: postID, sender: sender, postBody: PostBody, postImages: imageUrls , time: Date().formatted())
+    func updateFirebase(PostBody : String, sender:String, photoUrl:String ){
+    
             
-            self.db.collection(POST.PostCollection).document(postID).setData([POST.postID : postModel.postID,
-                                                                                POST.Postsender: postModel.sender,
-                                                                                POST.PostBody: postModel.postBody ,
-                                                                                POST.dateField: postModel.time,
-                                                                                POST.postImages: postModel.postImages
-                                                                                
-                                                                               ]) { error in
+            let postModel = PostModel.init(postID: postID, sender: sender, postBody: PostBody, postImages: imageUrls , time: Date().formatted(), profileImage: photoUrl )
+            
+            self.db.collection(P.PostCollection).document(postID).setData([P.postID : postModel.postID,
+                                                                              P.Postsender: postModel.sender,
+                                                                              P.PostBody: postModel.postBody ,
+                                                                              P.dateField: postModel.time,
+                                                                              P.postImages: postModel.postImages,
+                                                                              P.postSenderImage: postModel.profileImage
+                                                                             ]) { error in
                 if let e = error{
                     print("there was an issue saving data to fibase---\(e.localizedDescription)")
                 }else{
                     print("saved data")
                 }
             }
-        }
+        
     }
     
     func updateImagesInFireStore(){
-        let reference = db.collection(POST.PostCollection).document(postID)
+            
+        let reference = db.collection(P.PostCollection).document(postID)
         
         reference.updateData([
-            POST.postImages: imageUrls
+            P.postImages: imageUrls
+            
         ]){error in
             
             if let error = error{
@@ -145,10 +146,16 @@ class AddNewPost: NSObject{
         }
         
     }
-    
+    func AddPost(PostBody : String){
+        
+        if let user = Auth.auth().currentUser
+        {
+            if let name = user.displayName {
+                self.updateFirebase(PostBody: PostBody,sender: name ,photoUrl: user.photoURL?.absoluteString ?? "gs://youall-chat.appspot.com/postImages/user-3296.png" )
+            }
+        }
+    }
+   
 }
-
-
-
 
 

@@ -18,7 +18,7 @@
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fc4-ot-1Hu">
                         <rect key="frame" x="0.0" y="0.0" width="365" height="119"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xUs-jd-6Py" userLabel="user image">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xUs-jd-6Py" userLabel="user image">
                                 <rect key="frame" x="20" y="20" width="50" height="50"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -129,9 +129,9 @@
             <connections>
                 <outlet property="collectionView" destination="36f-wl-dT6" id="9Fu-77-Qr5"/>
                 <outlet property="commentButton" destination="TmF-Dq-v5j" id="mby-mw-79P"/>
-                <outlet property="iconImageView" destination="xUs-jd-6Py" id="5qp-kM-k9l"/>
                 <outlet property="name" destination="vpc-SB-YO9" id="h87-JI-vj5"/>
                 <outlet property="postDescription" destination="HWX-ls-Teg" id="me1-kD-kS9"/>
+                <outlet property="profileImageView" destination="xUs-jd-6Py" id="5qp-kM-k9l"/>
                 <outlet property="time" destination="Kfl-oc-FAs" id="Rzo-qO-CXy"/>
             </connections>
             <point key="canvasLocation" x="2678.6259541984732" y="-524.29577464788736"/>

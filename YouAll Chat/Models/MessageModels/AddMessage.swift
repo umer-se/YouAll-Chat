@@ -15,7 +15,7 @@ class AddMessage: NSObject{
     func addMessage(messageBody :String, _ conversationID: String){
         
         if let userID = Auth.auth().currentUser?.uid{
-            db.collection(User.UserColletion)
+            db.collection(FirebaseUser.UserColletion)
                 .document(userID)
                 .collection(conversationID)
                 .document()

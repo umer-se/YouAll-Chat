@@ -30,7 +30,7 @@ class SignUpVC : UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         
         if userAuthentication.checkLogin()  {
-            logInView()
+            logInView(newUser: false)
         }
     }
     
@@ -52,9 +52,16 @@ class SignUpVC : UIViewController{
     }
 }
 extension SignUpVC:UserAuthenticationDelegate{
-    func logInView(){
+    func logInView(newUser: Bool) {
+
+        if newUser{
+            self.performSegue(withIdentifier: "UserScreen", sender: self)
+        }else{
+            
+            self.performSegue(withIdentifier: "homeScreen", sender: self)
+        }
+                
         
-        self.performSegue(withIdentifier: "homeScreen", sender: self)
     }
     
     

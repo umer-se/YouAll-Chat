@@ -11,43 +11,38 @@ import Firebase
 class LoadComments: NSObject{
     
     var commnetDelegate : UpdateTableDelegate?
-    
+    var listenerDelegate :DeAttachListener?
     var comments :[CommentModel] = []
     
     let db = Firestore.firestore()
+    var listener :ListenerRegistration?
     
     func getCommentsForPostWith(postID :String){
-        db.collectionGroup(postID).addSnapshotListener{ querySnapshot, err  in
+    listener = db.collection(Post.collection)
+            .document(postID)
+            .collection(Comment.collection)
+            .order(by: Comment.TimeStamp)
+            .addSnapshotListener  { querySnapshot, err  in
             
-           // self.comments = []
+            
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                // here write a query to only load comments for a post id
-                
-                
-                for document in querySnapshot!.documentChanges{
+                self.comments = []
+                for document in querySnapshot!.documents{
                     
-                    let comments =  document.document.data()
-                    let commentModel = CommentModel(sender: comments[P.commentSender] as? String ?? "",
-                                                        commentBody: comments[P.commentBody] as? String ?? "",
-                                                    date: comments[P.commentDate] as? String ?? "",
-                                                    timeStamp: comments[P.commentTimeStamp] as? Double ?? 0.0,
-                                                    userImage: comments[P.commenterProfileImage] as? String ?? "" )
-                        
-                        
-                        self.comments.append(commentModel)
-               
-                    
-                    
-                    
-                    }
-                    
-                self.comments = self.comments.sorted { this1, this2 in
-                    this1.timeStamp < this2.timeStamp
+                    let comment = document.data()
+                    let commentModel = CommentModel(sender: comment[Comment.Sender] as? String ?? "",
+                                                    commentBody: comment[Comment.content] as? String ?? "no comment",
+                                                    date: comment[Comment.Date] as? String ?? "",
+                                                    timeStamp: comment[Comment.TimeStamp] as? Double ?? 0.0,
+                                                    userImage: comment[Comment.Image] as? String ?? ""
+                    )
+                    self.comments.append(commentModel)
                 }
-                
-                self.commnetDelegate?.updateTable()
+                DispatchQueue.main.async {
+                    self.commnetDelegate?.updateTable()
+                }
             }
         }
     }
@@ -70,7 +65,7 @@ extension LoadComments:UITableViewDataSource,UITableViewDelegate{
         return cell
     }
     
-   
+    
     
     
     

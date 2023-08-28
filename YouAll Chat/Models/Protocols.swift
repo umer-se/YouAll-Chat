@@ -10,7 +10,7 @@ import Foundation
 
 protocol postInteractionDelegate{
     
-    func likePressed(id postID :String)
+    func likePressed(ID :String, For : String)
     func commentPresssed(id postID :String )
 }
 
@@ -33,4 +33,8 @@ protocol loadMessageDelegate{
     func updateTable()
     func scrollToNewMessage(indexPath : IndexPath)
     
+}
+protocol DeAttachListener{
+    
+    func deattachListener(listenerObject: String)
 }

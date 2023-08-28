@@ -15,7 +15,7 @@ class AddMessage: NSObject{
         
         if Auth.auth().currentUser?.uid == conversationModel.createrID{
             
-            db.collection(Conversation.Collection)
+            db.collection(Conversation.collection)
                 .document(conversationModel.conversationID)
                 .collection(Message.collection)
                 .document()
@@ -42,7 +42,7 @@ class AddMessage: NSObject{
         }else{
             // change sender  and recipients fields
            
-            db.collection(Conversation.Collection)
+            db.collection(Conversation.collection)
                 .document(conversationModel.conversationID)
                 .collection(Message.collection)
                 .document()

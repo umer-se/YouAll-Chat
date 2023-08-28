@@ -47,8 +47,8 @@
 		044D34E92A7E242C004A1565 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044D34E72A7E242C004A1565 /* LaunchScreen.storyboard */; };
 		044D34FD2A7E31B6004A1565 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D34FC2A7E31B6004A1565 /* SignUpVC.swift */; };
 		044D35012A7E6E0D004A1565 /* UserAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D35002A7E6E0D004A1565 /* UserAuthentication.swift */; };
-		044D35092A80FDA8004A1565 /* Post.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D35082A80FDA8004A1565 /* Post.xib */; };
-		044D350B2A80FDF3004A1565 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D350A2A80FDF3004A1565 /* Post.swift */; };
+		044D35092A80FDA8004A1565 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D35082A80FDA8004A1565 /* PostCell.xib */; };
+		044D350B2A80FDF3004A1565 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D350A2A80FDF3004A1565 /* PostCell.swift */; };
 		044D35142A821B53004A1565 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D35132A821B53004A1565 /* CollectionCell.xib */; };
 		044D35162A821B88004A1565 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D35152A821B88004A1565 /* CollectionCell.swift */; };
 		044D351D2A823A2F004A1565 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 044D351C2A823A2F004A1565 /* Kingfisher */; };
@@ -106,8 +106,8 @@
 		044D34EA2A7E242C004A1565 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		044D34FC2A7E31B6004A1565 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		044D35002A7E6E0D004A1565 /* UserAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthentication.swift; sourceTree = "<group>"; };
-		044D35082A80FDA8004A1565 /* Post.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Post.xib; sourceTree = "<group>"; };
-		044D350A2A80FDF3004A1565 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		044D35082A80FDA8004A1565 /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		044D350A2A80FDF3004A1565 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		044D35132A821B53004A1565 /* CollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
 		044D35152A821B88004A1565 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		044D351E2A8262A9004A1565 /* DeatilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatilView.swift; sourceTree = "<group>"; };
@@ -244,8 +244,7 @@
 				04F5DEDA2A8F937B00DD549D /* post */,
 				04F5DED82A8F934000DD549D /* Post Image Collection */,
 				04F5DED92A8F936200DD549D /* Attachment Image Collection */,
-				04D3C4252A95FD3100948F84 /* MessageCell.xib */,
-				04D3C4272A95FD4800948F84 /* MessageCell.swift */,
+				04926A0B2A9C65D500BC284F /* message */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -269,7 +268,6 @@
 		044D34FB2A7E317A004A1565 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				041E74142A9A039E00E90279 /* GlobalMessageModels */,
 				044D35002A7E6E0D004A1565 /* UserAuthentication.swift */,
 				04A21D782A876711004F87F1 /* AttachmentImageDataSource.swift */,
 				045339552A9374750060C0E5 /* Protocols.swift */,
@@ -277,6 +275,7 @@
 				045339682A94B7780060C0E5 /* CommentModels */,
 				045339692A94B78E0060C0E5 /* ConversationModels */,
 				04D3C4222A95FB2300948F84 /* MessageModels */,
+				041E74142A9A039E00E90279 /* GlobalMessageModels */,
 				045339762A94CC430060C0E5 /* UserModel.swift */,
 			);
 			path = Models;
@@ -324,6 +323,15 @@
 			path = ConversationModels;
 			sourceTree = "<group>";
 		};
+		04926A0B2A9C65D500BC284F /* message */ = {
+			isa = PBXGroup;
+			children = (
+				04D3C4252A95FD3100948F84 /* MessageCell.xib */,
+				04D3C4272A95FD4800948F84 /* MessageCell.swift */,
+			);
+			path = message;
+			sourceTree = "<group>";
+		};
 		04D3C4222A95FB2300948F84 /* MessageModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,8 +372,8 @@
 		04F5DEDA2A8F937B00DD549D /* post */ = {
 			isa = PBXGroup;
 			children = (
-				044D35082A80FDA8004A1565 /* Post.xib */,
-				044D350A2A80FDF3004A1565 /* Post.swift */,
+				044D35082A80FDA8004A1565 /* PostCell.xib */,
+				044D350A2A80FDF3004A1565 /* PostCell.swift */,
 				04F5DEDF2A8F957700DD549D /* PostImageCollectionView.swift */,
 			);
 			path = post;
@@ -486,7 +494,7 @@
 				045339732A94C46F0060C0E5 /* AvailableUserCell.xib in Resources */,
 				045339662A94B4430060C0E5 /* ConversationCell.xib in Resources */,
 				044D34E92A7E242C004A1565 /* LaunchScreen.storyboard in Resources */,
-				044D35092A80FDA8004A1565 /* Post.xib in Resources */,
+				044D35092A80FDA8004A1565 /* PostCell.xib in Resources */,
 				04D3C4262A95FD3100948F84 /* MessageCell.xib in Resources */,
 				044D35142A821B53004A1565 /* CollectionCell.xib in Resources */,
 				04A21D7D2A876914004F87F1 /* AttachmentCell.xib in Resources */,
@@ -556,7 +564,7 @@
 				045339612A94B30B0060C0E5 /* ConversationVC.swift in Sources */,
 				04D3C4242A95FBC200948F84 /* MessagesVC.swift in Sources */,
 				04F5DEDE2A8F93A800DD549D /* CommentCell.swift in Sources */,
-				044D350B2A80FDF3004A1565 /* Post.swift in Sources */,
+				044D350B2A80FDF3004A1565 /* PostCell.swift in Sources */,
 				041E74162A9A03CB00E90279 /* GlobalMessageVC.swift in Sources */,
 				0453395C2A937F310060C0E5 /* ComentModel.swift in Sources */,
 				045339542A93552E0060C0E5 /* CommentVC.swift in Sources */,

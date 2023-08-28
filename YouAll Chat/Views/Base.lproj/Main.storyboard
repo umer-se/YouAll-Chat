@@ -143,7 +143,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="-100" translatesAutoresizingMaskIntoConstraints="NO" id="rXY-SU-qP4">
                                         <rect key="frame" x="0.0" y="60.333333333333343" width="100" height="100"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9R1-uA-Zqj">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9R1-uA-Zqj">
                                                 <rect key="frame" x="0.0" y="1" width="100" height="98.666666666666671"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="7Rh-aR-Zc8"/>
@@ -263,7 +263,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asT-aP-p7x" userLabel="delete button">
                                                 <rect key="frame" x="0.0" y="0.0" width="55" height="50"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="bin.xmark" catalog="system">
+                                                <buttonConfiguration key="configuration" style="plain" image="xmark.bin" catalog="system">
                                                     <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -349,14 +349,20 @@
                     <tabBarItem key="tabBarItem" title="Posts" image="text.book.closed.fill" catalog="system" id="CTi-un-J9c"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="rlL-Jz-2qv">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="edL-Xw-t0z">
+                        <barButtonItem key="leftBarButtonItem" style="done" id="edL-Xw-t0z">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="8YF-xS-MJO">
                                 <rect key="frame" x="16" y="0.0" width="75" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="list.bullet" catalog="system">
-                                    <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="list.bullet" catalog="system" renderingMode="hierarchical-single">
+                                        <hierarchicalColors>
+                                            <color systemColor="labelColor"/>
+                                            <color systemColor="secondaryLabelColor"/>
+                                            <color systemColor="tertiaryLabelColor"/>
+                                        </hierarchicalColors>
+                                    </imageReference>
+                                </state>
                                 <connections>
                                     <action selector="menuPressed:" destination="ifW-SP-0G1" eventType="touchUpInside" id="LB5-68-1or"/>
                                 </connections>
@@ -780,23 +786,26 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Pv5-tO-6Gh"/>
-        <segue reference="wCf-EU-xir"/>
+        <segue reference="woa-9m-NVb"/>
         <segue reference="7hQ-dW-0D0"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="bin.xmark" catalog="system" width="128" height="92"/>
         <image name="globe.badge.chevron.backward" catalog="system" width="128" height="114"/>
         <image name="heart.text.square.fill" catalog="system" width="128" height="114"/>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="paperplane.fill" catalog="system" width="128" height="119"/>
         <image name="person.crop.circle.badge.plus" catalog="system" width="128" height="114"/>
         <image name="photo" catalog="system" width="128" height="93"/>
-        <image name="plus.circle" catalog="system" width="128" height="123"/>
+        <image name="plus.circle" catalog="system" width="32" height="32"/>
         <image name="power" catalog="system" width="127" height="128"/>
         <image name="text.book.closed.fill" catalog="system" width="115" height="128"/>
         <image name="text.bubble.fill.rtl" catalog="system" width="128" height="110"/>
+        <image name="xmark.bin" catalog="system" width="128" height="92"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -812,6 +821,9 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

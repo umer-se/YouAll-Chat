@@ -18,8 +18,8 @@ class HomeVC : UIViewController{
     
     //MARK: - Variables
     
-    let postsFromDatabase = loadPosts()
-    let newPost = AddNewPost()
+    let postsRef = loadPosts()
+    let addPostRef = AddNewPost()
 
     let attachmentImageDataSource = AttachmentImageDataSource()
     let attachmentSource = AttachmentCell()
@@ -35,16 +35,20 @@ class HomeVC : UIViewController{
         
         tabBarController?.tabBar.isHidden = false
         navigationItem.hidesBackButton = true
-        postsFromDatabase.delegate = self
-        newPost.delegate = self
-        postsFromDatabase.buttonDelegate = self
+        postsRef.delegate = self
+        addPostRef.delegate = self
+        postsRef.buttonDelegate = self
 
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        postsFromDatabase.getPostsData()
+        postsRef.getPostsData()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        postsRef.listener?.remove()
     }
     
     
@@ -54,9 +58,9 @@ class HomeVC : UIViewController{
         postTextView.text = placeholder
         postTextView.textColor =  UIColor.lightGray
         
-        tableView.dataSource = postsFromDatabase
-        tableView.delegate = postsFromDatabase
-        tableView.register(UINib(nibName: "Post" , bundle: nil), forCellReuseIdentifier:K.PostIdentifier)
+        tableView.dataSource = postsRef
+        tableView.delegate = postsRef
+        tableView.register(UINib(nibName: "PostCell" , bundle: nil), forCellReuseIdentifier:K.PostIdentifier)
 
        
         attachmentImageDataSource.delegate = self
@@ -98,11 +102,10 @@ class HomeVC : UIViewController{
     @IBAction func SendPressed(_ sender: UIButton) {
         if let postText = postTextView.text {
             
-            newPost.addNewPost(postBody: postText)
+            addPostRef.addPost(postBody: postText)
         }
         
-        newPost.uploadImage(self.attachmentImageDataSource.images)
-        
+        addPostRef.uploadImage(self.attachmentImageDataSource.images)
         
         attachmentImageDataSource.images.removeAll()
         postTextView.text = ""
@@ -161,9 +164,6 @@ extension HomeVC: UITextViewDelegate{
     }
     
 }
-
-
-
 
 //MARK: - AttachmentDataSource Delegate
 
@@ -232,15 +232,12 @@ extension HomeVC: UpdateTableDelegate,addNewPostDelegate{
 }
 //MARK: - Post Interaction delegate
 extension HomeVC: postInteractionDelegate{
-
-    
-    func likePressed(id postID: String) {
-        print(postID)
+    func likePressed(ID: String, For: String) {
+        postsRef.updateLikeValue(postID: ID, state : For )
     }
+    
     func commentPresssed(id postID: String) {
-        //print(postID)
         self.postID = postID
-        
         performSegue(withIdentifier: K.commentsScreen, sender: self)
     }
     

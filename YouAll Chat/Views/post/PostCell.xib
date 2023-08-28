@@ -8,7 +8,7 @@
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postIdentifier" rowHeight="395" id="6Oe-Va-5GH" customClass="Post" customModule="YouAll_Chat" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postIdentifier" rowHeight="395" id="6Oe-Va-5GH" customClass="PostCell" customModule="YouAll_Chat" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="365" height="395"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Oe-Va-5GH" id="xK8-8s-LCk">
@@ -18,8 +18,8 @@
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fc4-ot-1Hu">
                         <rect key="frame" x="0.0" y="0.0" width="365" height="119"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xUs-jd-6Py" userLabel="user image">
-                                <rect key="frame" x="20" y="20" width="50" height="50"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xUs-jd-6Py" userLabel="user image">
+                                <rect key="frame" x="20" y="22" width="50" height="46.666666666666671"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="K70-Za-qmP"/>
@@ -129,6 +129,7 @@
             <connections>
                 <outlet property="collectionView" destination="36f-wl-dT6" id="9Fu-77-Qr5"/>
                 <outlet property="commentButton" destination="TmF-Dq-v5j" id="mby-mw-79P"/>
+                <outlet property="likeButton" destination="AbO-2c-xih" id="VAk-8s-pDh"/>
                 <outlet property="name" destination="vpc-SB-YO9" id="h87-JI-vj5"/>
                 <outlet property="postDescription" destination="HWX-ls-Teg" id="me1-kD-kS9"/>
                 <outlet property="profileImageView" destination="xUs-jd-6Py" id="5qp-kM-k9l"/>
@@ -141,6 +142,7 @@
     <resources>
         <image name="bubble.right" catalog="system" width="128" height="110"/>
         <image name="hand.thumbsup" catalog="system" width="123" height="128"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

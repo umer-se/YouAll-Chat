@@ -19,7 +19,7 @@ class AddConversation: NSObject{
         var flag = true
         let currentUser = (Auth.auth().currentUser)!
         
-        db.collection(Conversation.Collection).getDocuments { QuerySnapshot, error in
+        db.collection(Conversation.collection).getDocuments { QuerySnapshot, error in
             if error != nil{
                 print("error during fetching all users from database \(String(describing: error?.localizedDescription))")
             }
@@ -32,7 +32,7 @@ class AddConversation: NSObject{
                 for document in QuerySnapshot!.documents{
                     
                     let conversation = document.data()
-                    if let creater = conversation[Conversation.CreaterID], let with = conversation [Conversation.RecieverID] {
+                    if let creater = conversation[Conversation.createrID], let with = conversation [Conversation.recieverID] {
                         if creater as! String == currentUser.uid && with as! String == selectedUser.uid{
                             print("conversation already exists.")
                             flag = true
@@ -59,10 +59,10 @@ class AddConversation: NSObject{
                                                   createrPicture: currentUser.photoURL!.absoluteString,
                                                   recieverPicture: selectedUser.profilePicture)
         
-        let dbRef = db.collection(Conversation.Collection).document()
+        let dbRef = db.collection(Conversation.collection).document()
         
-        dbRef.setData([Conversation.RecieverID: conversationModel.recieverID,
-                       Conversation.CreaterID: conversationModel.createrID,
+        dbRef.setData([Conversation.recieverID: conversationModel.recieverID,
+                       Conversation.createrID: conversationModel.createrID,
                        Conversation.ID: dbRef.documentID,
                        Conversation.recieverName : conversationModel.recieverName ,
                        Conversation.createrName : conversationModel.CreaterName,

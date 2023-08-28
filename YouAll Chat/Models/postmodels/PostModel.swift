@@ -8,12 +8,14 @@
 import UIKit
 struct PostModel {
     
-    let postID: String
-    let sender : String
-    let postBody: String
-    let postImages: [String]
-    let time: String
-    let profileImage: String
+    let postID :String
+    let sender :String
+    let postBody :String
+    let postImages :[String]
+    let time :String
+    let profileImage :String
+    let timestamp :Double
+    let LikeBy :[String]
   
 }
 

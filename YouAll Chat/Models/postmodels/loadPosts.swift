@@ -27,9 +27,11 @@ class loadPosts: NSObject{
     
     let db = Firestore.firestore()
     
+    var listener : ListenerRegistration?
+    
     func getPostsData(){
         
-        db.collection(P.PostCollection)
+      listener = db.collection(Post.collection)
             .addSnapshotListener{ querySnapshot, err  in
                 
                 self.posts = []
@@ -40,13 +42,15 @@ class loadPosts: NSObject{
                     for document in querySnapshot!.documents{
                         
                         let postFields = document.data()
-                        let postModel = PostModel(postID: (postFields[P.postID] as? String)!,
-                                                  sender: (postFields[P.Postsender] as? String)!,
-                                                  postBody: (postFields[P.PostBody] as? String)!,
-                                                  postImages: (postFields[P.postImages] as? [String]) ?? [],
-                                                  time: (postFields[P.dateField] as? String ?? "default value"), profileImage: (postFields[P.postSenderImage] as? String) ?? ""
-                                                )
-                        
+                        let postModel = PostModel(postID: postFields[Post.postID] as? String ?? "",
+                                                  sender: postFields[Post.sender] as? String ?? "",
+                                                  postBody: postFields[Post.content] as? String ?? "",
+                                                  postImages: postFields[Post.images] as? [String] ?? [],
+                                                  time: postFields[Post.date] as? String ?? "default value",
+                                                  profileImage: postFields[Post.senderImage] as? String ?? "",
+                                                  timestamp: postFields[Post.timeStamp] as? Double ?? 0.0,
+                                                  LikeBy: postFields[Post.likeBy] as? [String] ?? []
+                                                )    
                         self.posts.append(postModel)
                         
                     }
@@ -56,7 +60,25 @@ class loadPosts: NSObject{
             }
     }
     
+    func updateLikeValue(postID:String, state: String){
+        
+        if let UserID = Auth.auth().currentUser?.uid{
+          let dbRef =  db.collection(Post.collection).document(postID)
+            
+            if state == "like"{
+                dbRef.updateData([
+                        Post.likeBy:FieldValue.arrayUnion([UserID])
+                    ])
+            }else
+            {
+                dbRef.updateData([
+                    Post.likeBy:FieldValue.arrayRemove([UserID])
+                    ])
+            }
+        }
+    }
 }
+
 extension loadPosts : UITableViewDataSource , UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -64,18 +86,15 @@ extension loadPosts : UITableViewDataSource , UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.PostIdentifier , for: indexPath) as! Post
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.PostIdentifier , for: indexPath) as! PostCell
         
         let postItem = posts[indexPath.row]
-        
         cell.buttonDelegate = self.buttonDelegate
-        cell.setupRow(postID: postItem.postID, sender: postItem.sender,
-                      postBody: postItem.postBody,
-                      postImages: postItem.postImages.count > 0 ? postItem.postImages : [] ,
-                      time: postItem.time, profileimage: postItem.profileImage)
+        cell.setupRow(postItem: postItem)
         
                return cell;
     }
+    
     
 }
 

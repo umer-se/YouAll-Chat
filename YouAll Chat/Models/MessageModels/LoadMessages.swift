@@ -15,9 +15,11 @@ class LoadMessages:NSObject{
     let db = Firestore.firestore()
     var messages:[MessageModel] = []
     
+    var listener: ListenerRegistration?
+    
     func getallmessages(conversation: ConversationModel){
         
-        db.collection(Conversation.Collection)
+     listener = db.collection(Conversation.collection)
             .document(conversation.conversationID)
             .collection(Message.collection)
             .order(by: Message.timeStamp)
@@ -63,7 +65,7 @@ extension LoadMessages: UITableViewDataSource,UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.MessageCell, for: indexPath) as! messageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.messageCell, for: indexPath) as! messageCell
         let messageItem = messages[indexPath.row]
         
         let currentUser = Auth.auth().currentUser

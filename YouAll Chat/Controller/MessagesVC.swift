@@ -23,9 +23,14 @@ class MessagesVC : UIViewController{
         loadMessageRef.messageDelegate = self
         
         tableView.dataSource = loadMessageRef
-        tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: K.MessageCell)
+        tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: K.messageCell)
         
         loadMessageRef.getallmessages(conversation: conversation!)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        loadMessageRef.listener?.remove()
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {

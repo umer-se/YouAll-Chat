@@ -16,13 +16,14 @@ class CollectionCell : UICollectionViewCell {
     @IBOutlet weak var overlay: UILabel!
     @IBOutlet weak var mainView: UIImageView!
     
-    override class func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     func setupcell(imageString : String, count: Int){
         
-        mainView.kf.setImage(with: URL(string: imageString))
+        
+        mainView.kf.setImage(with: URL(string: imageString),placeholder: UIImage(named: "placeholder-image"))
         mainView.contentMode = .scaleAspectFill
         if count != 0{
             overlay.isHidden = false

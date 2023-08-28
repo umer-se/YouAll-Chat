@@ -20,9 +20,11 @@ class LoadConversations: NSObject{
     var conversations: [ConversationModel] = []
     var conversationID: [String] = []
     
+    var listener : ListenerRegistration?
+    
     func getData(){
         
-        db.collection(Conversation.Collection).addSnapshotListener { QuerySnapshot, error in
+      listener = db.collection(Conversation.collection).addSnapshotListener { QuerySnapshot, error in
             if error != nil{
                 print("error in geting data about conversations")
                 
@@ -45,8 +47,8 @@ class LoadConversations: NSObject{
                             
                             
                             let conversationModel = ConversationModel(time: conversation[Conversation.time] as? String ?? "no time",
-                                                                      recieverID: conversation[Conversation.RecieverID] as! String,
-                                                                      createrID: conversation[Conversation.CreaterID] as! String,
+                                                                      recieverID: conversation[Conversation.recieverID] as! String,
+                                                                      createrID: conversation[Conversation.createrID] as! String,
                                                                       recieverName: conversation[Conversation.recieverName] as? String ?? "No Name",
                                                                       CreaterName: conversation[Conversation.createrName] as? String ?? "No Name",
                                                                       conversationID: conversation[Conversation.ID] as! String,

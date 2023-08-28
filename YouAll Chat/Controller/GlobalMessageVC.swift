@@ -21,12 +21,16 @@ class GlobalMessageVC: UIViewController{
 
         loadGlobalMessageRef.globalMessageDelegate = self
         tableView.dataSource = loadGlobalMessageRef
-        tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: K.MessageCell)
+        tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: K.messageCell)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadGlobalMessageRef.loadAllMessages()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        loadGlobalMessageRef.listener?.remove()
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {

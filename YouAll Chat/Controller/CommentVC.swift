@@ -31,11 +31,17 @@ class CommentVC : UIViewController{
         commentsRef.commnetDelegate = self
         
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        commentsRef.listener?.remove()
+    }
+    
     @IBAction func sendPressed(_ sender: UIButton) {
         if let text = textView.text{
-            self.newCommentRef.addComment(comment: text,id: postID)
+            self.newCommentRef.addComment(commentBody: text,postID: postID)
         }
     }
+   
     
     
 }

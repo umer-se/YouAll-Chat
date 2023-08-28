@@ -6,29 +6,37 @@
 //
 
 import Foundation
-struct P{
-    static let PostCollection = "Posts"
-    static let Postsender = "sender"
-    static let PostBody = "postbody"
-    static let dateField = "date"
-    static let postImages = "postImages"
+struct Post{
+    static let collection = "Posts"
+    static let sender = "sender"
+    static let senderImage = "profilePicture"
+    static let content = "postbody"
+    static let date = "date"
+    static let images = "postImages"
     static let postID = "postID"
-    static let commentCollection = "Comments"
-    static let commentId = "commentID"
-    static let commentBody = "commentBody"
-    static let commentSender = "commentSender"
-    static let commentDate = "date"
-    static let commentTimeStamp = "commentTimeStamp"
-    static let commenterProfileImage = "Sender ProfileImage"
-    static let postSenderImage = "profilePicture" 
+    static let timeStamp = "Time Stamp"
+    static let likes = "Likes"
+    static let likeBy = "LikeBy"
+    
 }
+struct Comment{
+    static let collection = "Comments"
+    static let id = "commentID"
+    static let content = "Content"
+    static let Sender = "Sender"
+    static let Date = "Date"
+    static let TimeStamp = "TimeStamp"
+    static let Image = "Sender ProfileImage"
+
+}
+
 
 struct Conversation{
     static let recieverPicture = "recieverPicture"
     static let createrPicture = "createrPicture"
-    static let Collection = "Conversations"
-    static let RecieverID = "ConversationWith"
-    static let CreaterID = "ConversationStarter"
+    static let collection = "Conversations"
+    static let recieverID = "ConversationWith"
+    static let createrID = "ConversationStarter"
     static let ID = "ConversationID"
     static let user = "User"
     static let recieverName = "RecieverName"
@@ -39,10 +47,10 @@ struct Conversation{
 }
 
 struct FirebaseUser{
-    static let UserColletion = "Users"
-    static let Name = "Name"
-    static let PhoneNo  = "Phone NO"
-    static let Email  = "Email"
+    static let colletion = "Users"
+    static let name = "Name"
+    static let phoneNo  = "Phone NO"
+    static let email  = "Email"
     static let id = "UID"
     static let recieverID = "RecieverID"
     static let profilePicture = "ProfilePicture"
@@ -71,7 +79,7 @@ struct K {
     static let conversationCell = "ConversationCell"
     static let availableUserCell = "AvailableUserCell"
     static let chatView = "ChatView"
-    static let MessageCell = "MessageCell"
+    static let messageCell = "MessageCell"
      
 }
 struct Global{

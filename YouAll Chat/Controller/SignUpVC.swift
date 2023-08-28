@@ -24,11 +24,11 @@ class SignUpVC : UIViewController{
         super.viewDidLoad()
         
         userAuthentication.userAuthDelegate = self
-        tabBarController?.tabBar.isHidden = true
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        tabBarController?.tabBar.isHidden = true
         if userAuthentication.checkLogin()  {
             logInView(newUser: false)
         }

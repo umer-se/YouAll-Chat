@@ -35,13 +35,16 @@ class ConversationVC: UIViewController{
         conversationRef.getConversations()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        conversationRef.listener?.remove()
+    }
+    
     @IBAction func AddUserPressed(_ sender: UIButton) {
         
         
     }
 }
-
-
 
 
 extension ConversationVC : UpdateTableDelegate,SwitchScreenDelegate{

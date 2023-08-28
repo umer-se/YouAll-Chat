@@ -22,7 +22,7 @@ class AvailableUsers: NSObject{
     
     
     func getallUsersOnNetwork(){
-        db.collection(FirebaseUser.UserColletion).addSnapshotListener { QuerySnapshot, error in
+        db.collection(FirebaseUser.colletion).addSnapshotListener { QuerySnapshot, error in
             
             if error != nil{
                 print("error during fetching all users from database \(String(describing: error?.localizedDescription))")
@@ -33,9 +33,9 @@ class AvailableUsers: NSObject{
                 for document in QuerySnapshot!.documents{
                     
                     let user = document.data()
-                    let userModel = UserModel(Name: (user[FirebaseUser.Name] as? String ?? ""),
-                                              PhoneNo: (user[FirebaseUser.PhoneNo] as? String ?? ""),
-                                              Email: (user[FirebaseUser.Email] as? String ?? ""),
+                    let userModel = UserModel(Name: (user[FirebaseUser.name] as? String ?? ""),
+                                              PhoneNo: (user[FirebaseUser.phoneNo] as? String ?? ""),
+                                              Email: (user[FirebaseUser.email] as? String ?? ""),
                                               uid: user[FirebaseUser.id] as? String ?? "", profilePicture: user[FirebaseUser.profilePicture] as? String ?? "")
                     
                     if userModel.uid != Auth.auth().currentUser?.uid{

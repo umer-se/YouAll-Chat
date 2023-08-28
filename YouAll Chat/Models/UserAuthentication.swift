@@ -89,10 +89,10 @@ class UserAuthentication{
             let phoneNo = firebaseUser.phoneNumber ?? "no Phone number"
             let email = firebaseUser.email ?? " no email"
             let uid = firebaseUser.uid
-            db.collection(FirebaseUser.UserColletion).document(uid).setData([FirebaseUser.id : uid ,
-                                                                             FirebaseUser.Name:userName,
-                                                                     FirebaseUser.PhoneNo : phoneNo,
-                                                                     FirebaseUser.Email: email], merge: true)
+            db.collection(FirebaseUser.colletion).document(uid).setData([FirebaseUser.id : uid ,
+                                                                             FirebaseUser.name:userName,
+                                                                     FirebaseUser.phoneNo : phoneNo,
+                                                                     FirebaseUser.email: email], merge: true)
             
         }
         
@@ -101,7 +101,7 @@ class UserAuthentication{
         if let firebaseUser = Auth.auth().currentUser{
             let profilePicture = firebaseUser.photoURL
             let uid = firebaseUser.uid
-            db.collection(FirebaseUser.UserColletion).document(uid).setData([
+            db.collection(FirebaseUser.colletion).document(uid).setData([
                 FirebaseUser.profilePicture:profilePicture!.absoluteString], merge: true)
         }
     }

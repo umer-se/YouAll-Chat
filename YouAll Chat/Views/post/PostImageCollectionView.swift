@@ -45,11 +45,9 @@ extension PostImageCollectionView: UICollectionViewDataSource, UICollectionViewD
             }
         }
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.imageTapped(index: indexPath.item)
-        
-        
+  
     }
 }
 //MARK: - UICollectionViewDelegateFlowLayout
@@ -58,7 +56,6 @@ extension PostImageCollectionView : UICollectionViewDelegateFlowLayout{
 
          return getImageSize(indexPath,collectionView )
      }
-
 
      //everything is hardcoded at the moment change it in future
     func getImageSize(_ indexPath:IndexPath,_ collectionView: UICollectionView)->CGSize{

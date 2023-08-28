@@ -14,10 +14,12 @@ class LoadGlobalMessage: NSObject{
     var messages: [GlobalMessageModel] = []
     var globalMessageDelegate : loadMessageDelegate?
     
+    var listener : ListenerRegistration?
+    
     func loadAllMessages(){
         
         
-        db.collection(Global.collection)
+    listener = db.collection(Global.collection)
             .order(by: Message.timeStamp)
             .addSnapshotListener { QuerySnapshot, error in
             
@@ -64,7 +66,7 @@ extension LoadGlobalMessage: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.MessageCell, for: indexPath) as! messageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.messageCell, for: indexPath) as! messageCell
         let messageItem = messages[indexPath.row]
         
         let currentUser = Auth.auth().currentUser

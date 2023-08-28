@@ -9,7 +9,6 @@ protocol addNewPostDelegate{
     func refreshData()
 }
 
-
 import UIKit
 import Firebase
 import FirebaseStorage
@@ -22,16 +21,43 @@ class AddNewPost: NSObject{
     var postID = ""
     var postBody = ""
     
-    func addNewPost(postBody : String){
-        // only check once if the same key exist implement it correctly in future
-        if !checkAvailabilityForID(id: postID){
-            AddPost(PostBody: postBody)
-        }else{
+    func addPost(postBody: String){
+        
+        let dbRef = db.collection(Post.collection).document()
+        
+        postID = dbRef.documentID
+        
+        if let user = Auth.auth().currentUser{
+            let postModel = PostModel(postID: postID,
+                                      sender: user.displayName ?? user.phoneNumber!,
+                                      postBody: postBody,
+                                      postImages: imageUrls,
+                                      time: Date().formatted(),
+                                      profileImage: user.photoURL?.absoluteString ?? "",
+                                      timestamp: Date().timeIntervalSince1970, LikeBy: []
+            )
             
+            dbRef.setData([Post.postID: postModel.postID,
+                           Post.content :postModel.postBody,
+                           Post.images : postModel.postImages,
+                           Post.sender : postModel.sender,
+                           Post.senderImage : postModel.profileImage,
+                           Post.date : postModel.time,
+                           Post.timeStamp : postModel.timestamp,
+                           Post.likeBy: postModel.LikeBy
+                          ])
+            { Error in
+                if Error != nil{
+                    print("Error saving post \(String(describing: Error?.localizedDescription))")
+                    
+                }else{
+                    
+                    print("post saved ")
+                }
+            }
         }
-        self.postBody = postBody
+        
     }
-    
     func uploadImage(_ attachedimage: [UIImage]){
         
         imageUrls.removeAll()
@@ -59,10 +85,10 @@ class AddNewPost: NSObject{
                             
                             self.imageUrls.append(downloadURL.absoluteString)
                             print("here")
-                            self.updateImagesInFireStore()
+                            
                             uploadImageCount += 1
                             if uploadImageCount == attachedimage.count{
-                                
+                                self.updateImagesInFireStore()
                                 self.delegate?.refreshData()
                                 print("reload here")
                             }
@@ -74,64 +100,12 @@ class AddNewPost: NSObject{
         }// attached image loop end
         
     }
-    
-    
-    func randomString(length: Int) -> String {
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        return String((0..<length).map{ _ in letters.randomElement()! })
-    }
-    
-    
-    // make this function more effiecint in funture.
-    func checkAvailabilityForID(id: String)-> Bool{
-        
-        var flag = false
-        postID = randomString(length: 10)
-        
-        let docRef = db.collection(P.PostCollection).document(postID)
-        
-        docRef.getDocument { document, error in
-            if let document = document, document.exists{
-                print("id exists")
-                flag = true
-            }
-            else
-            {
-                flag = false
-                print("id available")
-                
-            }
-        }
-        return flag
-    }
-    
-    func updateFirebase(PostBody : String, sender:String, photoUrl:String ){
-        
-        
-        let postModel = PostModel.init(postID: postID, sender: sender, postBody: PostBody, postImages: imageUrls , time: Date().formatted(), profileImage: photoUrl )
-        
-        self.db.collection(P.PostCollection).document(postID).setData([P.postID : postModel.postID,
-                                                                       P.Postsender: postModel.sender,
-                                                                       P.PostBody: postModel.postBody ,
-                                                                       P.dateField: postModel.time,
-                                                                       P.postImages: postModel.postImages,
-                                                                       P.postSenderImage: postModel.profileImage
-                                                                      ]) { error in
-            if let e = error{
-                print("there was an issue saving data to fibase---\(e.localizedDescription)")
-            }else{
-                print("saved data")
-            }
-        }
-        
-    }
-    
     func updateImagesInFireStore(){
         
-        let reference = db.collection(P.PostCollection).document(postID)
+        let reference = db.collection(Post.collection).document(postID)
         
         reference.updateData([
-            P.postImages: imageUrls
+            Post.images: imageUrls
             
         ]){error in
             
@@ -146,16 +120,5 @@ class AddNewPost: NSObject{
         }
         
     }
-    func AddPost(PostBody : String){
-        
-        if let user = Auth.auth().currentUser
-        {
-            if let name = user.displayName {
-                self.updateFirebase(PostBody: PostBody,sender: name ,photoUrl: user.photoURL?.absoluteString ?? "gs://youall-chat.appspot.com/postImages/user-3296.png" )
-            }
-        }
-    }
     
 }
-
-

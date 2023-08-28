@@ -6,16 +6,21 @@
 //
 
 import UIKit
-
+import Kingfisher
 
 class DetailView: UIViewController{
     
     //MARK: -
     
+    @IBOutlet var image: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+   
+        
     }
+    
+    
     
 }
 

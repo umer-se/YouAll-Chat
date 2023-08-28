@@ -679,7 +679,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zg8-U8-38G">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zg8-U8-38G">
                                 <rect key="frame" x="0.0" y="94" width="375" height="586"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -698,10 +698,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ggm-AE-nWv"/>
+                    <connections>
+                        <outlet property="image" destination="Zg8-U8-38G" id="FUZ-7f-AeI"/>
+                    </connections>
                 </viewController>
+                <swipeGestureRecognizer direction="left" id="Sim-xf-7xq" userLabel="left swipe"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jTV-8e-kmZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="Dhd-w0-5yK" userLabel="right swipe"/>
-                <swipeGestureRecognizer direction="left" id="Sim-xf-7xq" userLabel="left swipe"/>
             </objects>
             <point key="canvasLocation" x="4927" y="134"/>
         </scene>

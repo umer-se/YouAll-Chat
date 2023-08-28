@@ -473,8 +473,8 @@
 			);
 			mainGroup = 044D34D02A7E242A004A1565;
 			packageReferences = (
-				044D351B2A823A2F004A1565 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				0453395D2A9488E80060C0E5 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				044D351B2A823A2F004A1565 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
+				0453395D2A9488E80060C0E5 /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */,
 				042C3E2D2A9719A40064C6D3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 044D34DA2A7E242A004A1565 /* Products */;
@@ -806,7 +806,7 @@
 				minimumVersion = 10.0.0;
 			};
 		};
-		044D351B2A823A2F004A1565 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		044D351B2A823A2F004A1565 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -814,7 +814,7 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		0453395D2A9488E80060C0E5 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+		0453395D2A9488E80060C0E5 /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
 			requirement = {
@@ -962,12 +962,12 @@
 		};
 		044D351C2A823A2F004A1565 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 044D351B2A823A2F004A1565 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = 044D351B2A823A2F004A1565 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
 			productName = Kingfisher;
 		};
 		0453395E2A9488E90060C0E5 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0453395D2A9488E80060C0E5 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			package = 0453395D2A9488E80060C0E5 /* XCRemoteSwiftPackageReference "IQKeyboardManager.git" */;
 			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

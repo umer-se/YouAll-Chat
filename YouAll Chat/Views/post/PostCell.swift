@@ -131,9 +131,14 @@ class PostCell : UITableViewCell {
     }
 }
 
+//MARK: - PostImage Delegate
+
 extension PostCell: PostImageDelegate{
+    
     func imageTapped(index: Int) {
         print("image \(index) tapped")
+        //postImageCollection.images
+        
     }
     
     

@@ -86,12 +86,6 @@ class HomeVC : UIViewController{
     }
     
     
-    @IBAction func refreshPressed(_ sender: UIButton) {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
-    
     @IBAction func menuPressed(_ sender: UIButton) {
        print("pressed")
         
